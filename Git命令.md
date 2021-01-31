@@ -19,6 +19,24 @@ git config --global user.email "yourname@yourmail.com"
 git clone git@github.com:oplufei/note.git
 ```
 
+ssh地址，会出现
+
+```
+$ git clone git@github.com:oplufei/note.git
+Cloning into 'note'...
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+
+或者
+
+```c
+git clone https://github.com/oplufei/note.git
+```
+
 本地就有了note文件夹
 
 ## 本地仓库更新到Github
