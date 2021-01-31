@@ -2,9 +2,27 @@
 
 ## 项目（代码）从Github上clone到本地仓库
 
-安装git
+### 安装git
 
-github添加ssh key
+### github添加ssh key
+
+```c
+ssh-keygen -t rsa -C "youremail@example.com"		//生成SSH KEY
+```
+
+默认生成在C:\Users\Administrator\.ssh
+
+打开 **id_rsa.pub**，复制里面的 key
+
+回到 github 上，进入 Account => Settings（账户配置）
+
+左边选择 **SSH and GPG keys**，然后点击 **New SSH key** 按钮,title 设置标题，可以随便填，粘贴在你电脑上生成的 key。
+
+为了验证是否成功，输入以下命令：
+
+```
+ssh -T git@github.com
+```
 
 首次安装git配置账户信息
 
@@ -13,13 +31,13 @@ git config --global user.name "yourname"
 git config --global user.email "yourname@yourmail.com"
 ```
 
-下载
+### 下载
 
 ```c
 git clone git@github.com:oplufei/note.git
 ```
 
-ssh地址，会出现
+ssh地址，未配置ssh key会出现
 
 ```
 $ git clone git@github.com:oplufei/note.git
@@ -62,3 +80,4 @@ git commit -m "家台式机更新Git命令"
 git push -u origin main -f
 ```
 
+没有绑定ssh的时候，每次提交都要输入用户名密码
