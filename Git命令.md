@@ -1,9 +1,5 @@
 # Git命令
 
-[TOC]
-
-
-
 ## 项目（代码）从Github上clone到本地仓库
 
 ### 安装git
@@ -102,11 +98,40 @@ git commit
 git push
 ```
 
-## 更改默认分支名称
+## 分支
+
+### 更改默认分支名称
 
 ```
 git branch -m main master					#重命名
 git fetch origin
 git branch -u origin/master master
+```
+
+### 新建分支
+
+```
+git branch 新建的分支名字
+```
+
+### 删除本地分支
+
+先切换到要删除的分支再删除当前分支
+
+```
+git checkout main
+git branch -d main
+```
+
+强制删除
+
+```
+git branch -D main
+```
+
+### 删除远程分支
+
+```
+git push origin --delete main
 ```
 
