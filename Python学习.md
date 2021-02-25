@@ -410,7 +410,7 @@ turtle.setup(800, 400)					#默认在正中心
 
 #### 坐标体系
 
-绝对坐标
+##### 绝对坐标
 
 （0， 0）原点：海龟初始位置
 
@@ -421,3 +421,61 @@ x轴（0， +∞）：海龟向右行进
 y轴（0， +∞）：海龟向上行进
 
 ​      （-∞， 0）：海龟向下行进
+
+###### turtle.goto(x, y)   
+
+到指定位置	
+
+```python
+#绘制五边形
+import turtle
+turtle.goto(100, 100)
+turtle.goto(100, -100)
+turtle.goto(-100, -100)
+turtle.goto(-100, 100)
+turtle.goto(0, 0)
+```
+
+##### 海龟坐标
+
+以海龟前进方向的前后左右确定
+
+turtle.fd(d)：向正前方运行
+
+turtle.bk(d)：向反方向运行
+
+turtle.circle(r, angle)：以海龟左侧某点为圆心进行曲线运行
+
+##### 角度坐标体系 
+
+改变海龟行进方向
+
+###### turtle.seth(angle)	绝对度数
+
+```python
+#画斜Z
+import turtle
+turtle.seth(45)
+turtle.fd(100)
+turtle.seth(-90)
+turtle.fd(100)
+turtle.seth(45)
+turtle.fd(100)
+```
+
+###### turtle.left(angle)	 相对度数
+
+###### turtle.right(angle)  相对度数
+
+```python
+#画斜Z（与上同）
+import turtle
+turtle.left(45)
+turtle.fd(100)
+turtle.right(135)
+turtle.fd(100)
+turtle.left(135)
+turtle.fd(100)
+```
+
+#### RGB色彩体系
