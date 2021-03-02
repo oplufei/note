@@ -312,6 +312,13 @@ print('输入格式错误')
  print("转换后的温度是{:.2f}F".format(F))
 ```
 
+format() 中的值 F 按照 {} 里面的内容调整后嵌入输出
+
+```
+#输入123456789.01234567F
+68587087.23C
+```
+
 ### 评估函数
 
 eval()
@@ -369,25 +376,115 @@ eval("print("hello")")		#SyntaxError: invalid syntax
 
 #### 算法代码
 
+##### 基本代码
+
 ```python
 #PythonDraw.py
 import turtle								#引入绘图库 
-turtle.setup(650, 350, 200, 200)			#
-turtle.penup()								#
-turtle.fd(-250)								#
-turtle.pendown()							#
-turtle.pensize(25)							#
+turtle.setup(650, 350, 200, 200)			# 设置窗体
+turtle.penup()								#抬起画笔
+turtle.fd(-250)								#移到左侧
+turtle.pendown()							#落下画笔
+turtle.pensize(25)							#设置画笔
 turtle.pencolor("purple")					#
 turtle.seth(-40)							#
-for i in range(4):
+for i in range(4):							#循环绘制路径形成身体
     turtle.circle(40, 80)
     turtle.circle(-40, 80)
-turtle.circle(40, 80/2)
+turtle.circle(40, 80/2)						#画头
 turtle.fd(40)
 turtle.circle(16, 180)
 turtle.fd(40 * 2/3)
-turtle.done()
+turtle.done()								#运行后程序不退出
 ```
+
+基本代码分析
+
+1. tutle.xxx：<a>.<b>() 编码风格
+
+2. 库引用——扩充Python程序功能的方式
+
+   ```python
+   import <库名>
+   <库名>.<函数名>(<函数参数>)
+   ```
+
+   
+
+##### 简洁代码
+
+```python
+from turtle import* 
+setup(650, 350, 200, 200)			
+penup()								
+fd(-250)								
+pendown()							
+pensize(25)							
+pencolor("purple")					
+seth(-40)							
+for i in range(4):
+    circle(40, 80)
+    circle(-40, 80)
+circle(40, 80/2)
+fd(40)
+circle(16, 180)
+fd(40 * 2/3)
+done()
+```
+
+简洁代码分析
+
+1. 库引用方法——from 配合 import使用
+
+   ```python
+   from <库名> import <函数名>
+   from <库名> import *
+   <函数名>(<函数参数>)
+   ```
+
+   
+
+2. 优点： 简洁，不用频繁使用 turtle.
+
+   缺点： 与用户自定义的函数重名，产生函数冲突
+
+   使用： 程序短，只使用定义库
+
+##### 建议代码风格
+
+```python
+import turtle as t								 
+t.setup(650, 350, 200, 200)			
+t.penup()								
+t.fd(-250)								
+t.pendown()							
+t.pensize(25)							
+t.pencolor("purple")					
+t.seth(-40)							
+for i in range(4):
+    t.circle(40, 80)
+    t.circle(-40, 80)
+t.circle(40, 80/2)
+t.fd(40)
+t.circle(16, 180)
+t.fd(40 * 2/3)
+t.done()
+```
+
+分析
+
+1. 库引用方法——as 配合 import 使用
+
+   ```python
+   import <库名> as <库别名>
+   <库别名>.<函数名>(<函数参数>)
+   ```
+
+   
+
+2. 优点： 给调用的外部库关联一个更短、更适合自己的名字
+
+​                   冗余少，避免函数重名
 
 ### Python标准库——turtle库
 
@@ -446,9 +543,9 @@ turtle.bk(d)：向反方向运行
 
 turtle.circle(r, angle)：以海龟左侧某点为圆心进行曲线运行
 
-##### 角度坐标体系 
+##### 角度坐标体系 （方向控制函数）
 
-改变海龟行进方向
+控制海龟面对的方向： 绝对角度 & 海龟角度
 
 ###### turtle.seth(angle)	绝对度数
 
@@ -479,3 +576,106 @@ turtle.fd(100)
 ```
 
 #### RGB色彩体系
+
+红蓝绿三个通道颜色及颜色组合
+
+每色取值范围：	0 - 255（整数）
+
+​                               0 - 1（小数）
+
+turtle库默认用小数值表示颜色
+
+```python
+turtle.colormode(1.0)			#RGB小数值模式
+turtle.colormode(255)			#RGB整数值模式
+```
+
+#### 画笔控制函数
+
+画笔操作后一直有效，一般成对出现
+
+```python
+turtle.penup()	       # 别名：turtle.pu() 抬起画笔，海龟在飞行
+turtle.pendown()       # 别名：turtle.pd() 落下画笔，海龟在爬行
+```
+
+笔画设置后一直有效，直至下次重新设置
+
+```python
+turtle.pensize(width)       # 别名 turtle.width(width)  画笔宽度，海龟的腰围
+turtle.pencolor(color)      # 画笔颜色，海龟在涂装，color 颜色字符串或RGB值
+turtle.pencolor("purple")		     # 颜色字符串,小写
+turtle.pencolor(0.63, 0.13, 0.94)	 #RGB小数值
+turtle.pencolor((0.63, 0.13, 0.94))  #RGB元组值     
+```
+
+#### 运动控制函数
+
+控制海龟行进： 走直线 or 走曲线
+
+##### 向前行进，海龟走直线
+
+```python
+turtle.forward(d)		# 别名： turtle.fd(d)	
+```
+
+d： 行进距离，负数倒退
+
+##### 根据半径 r 绘制 extent 角度的弧形
+
+```python
+turtle.circle(r, extent=None)
+```
+
+r：默认圆心在海龟左侧 r 距离的位置
+
+extent： 绘制角度，默认是360度整圆
+
+#### 循环语句与 range() 函数
+
+按照一定次数循环执行一组语句
+
+```python
+for <变量> in range (<参数>)
+	<被循环执行的语句>
+```
+
+<变量>： 每次循环的计数，0 ~ （<次数> - 1）
+
+range()： 产生循环计数序列
+
+range(N)：  0 到 N-1 整数序列
+
+range(M, N)： M 到 N-1 整数序列
+
+```python
+for i in range(5):
+    print(i)
+    
+for i in range(5):
+    print("hello:",i)
+    
+for i in range(2,5):
+    print(i)
+```
+
+输出结果
+
+```
+0
+1
+2
+3
+4
+hello: 0
+hello: 1
+hello: 2
+hello: 3
+hello: 4
+2
+3
+4
+```
+
+print()中间加 ‘，’，输出结果之间自动加空格 
+
