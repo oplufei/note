@@ -135,3 +135,40 @@ git branch -D main
 git push origin --delete main
 ```
 
+## 解决github网页打不开的方法
+
+### 一、hosts文件究竟起到什么作用呢？
+
+经常在网上看到修改hosts文件，那hosts文件究竟起到什么作用呢？
+  很简单, 因为无论你上网打的什么网站地址, 实际上最终总归是要转换成一个IP地址才能访问的,平时这个转换工作是有网络上的DNS服务器来完成的. 但是有些时候,有些网站, 由于某些原因,网络上的DNS服务器无法给出正确的或可用IP地址(天朝特别多, 大家懂的),   这个时候hosts文件就可以代劳了,你可以直接用记事本打开这文件看看就知道了, 里面一行就是一条记录, 一个IP地址接一个空格或tab, 再后面就是一个网址.
+  它起到的作用就是直接在你本机上就把这些网址翻译成IP地址.
+  本地预先配置的DNS数据，解析域名的时候首先试图从hosts文件获取，没有则从DNS服务器获取。
+
+此文件的三个主要用途：
+  1，配置没有在DNS注册的域名，这对于局域网的服务有一定的价值，这是正常使用目的
+  2，避开DNS服务实现某域名指向正确地址，防止别有用心的DNS误导
+  3，避开DNS服务实现某域名指向错误地址，防止讨厌的广告
+
+补充一点背景资料：
+从Windows 2000开始，Windows解析名称的顺序为： DNS cache --> hosts 文件 -->DNS Server –> NetBIOS cache --> WINS Server --> 广播 --> LMHOSTS 文件
+hosts 文件的优先级高于 DNS Server，因此修改hosts文件可以跳过被污染的dns服务器。
+更规范的做法是修改hosts之后，使用 ipconfig /flushdns 来清空DNS cache.
+
+### 二、具体操作
+
+#### 2.1 进入下面两个网址，提取ip地址
+
+https://github.com.ipaddress.com/
+https://fastly.net.ipaddress.com/github.global.ssl.fastly.net
+
+#### 2.2 前往文件夹 C:\Windows\System32\drivers\etc
+
+寻找hosts文件，你需要将其移出来操作，若是你在原地操作的话，会提示你没有权限的，建议移到桌面，然后以txt方式打开编辑，保存，最后将文件放回原来的目录下。
+
+在文件末尾添加如下内容 ，根据自己所得到的 ip地址进行修改。
+
+打开命令端口键盘最下面一行左边第二个 + R打开，输入cmd确认，输入ipconfig/fiushdns
+
+————————————————
+版权声明：本文为CSDN博主「&amp;~&amp;」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/LJP1924804579/article/details/107894684
