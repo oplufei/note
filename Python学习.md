@@ -70,12 +70,9 @@ done()
 
 #### 需求分析
 
-
 两种温度体系转换——摄氏度转换为华氏度
 
-
-							  ——华氏度转换为摄氏度
-
+​                              ——华氏度转换为摄氏度
 
 #### 问题分析
 
@@ -86,8 +83,6 @@ done()
 1. 直接将温度值进行转换
 2. 将温度信息发布的声音或图像形式进行理解和转换
 3. 监控温度信息发布渠道，实时获取并转换温度值
-
-
 
 #### 划分边界
 
@@ -100,19 +95,15 @@ done()
 2. 处理：根据温度标志选择适当的温度转换算法
 3. 输出：带摄氏或华氏标志的温度值
 
-
-
 #### 设计算法
 
-
 根据公式
-
-
-$$C = (F-32)/1.8
+$$
+C = \frac{F-32}{1.8}
 $$
 
-
-$$F = C*1.8+32
+$$
+F = C\times1.8+32
 $$
 
 
@@ -161,8 +152,6 @@ Pe pe 是不同变量
 123P 不合法
 3. 不与保留字相同
 
-
-
 ### 保留字
 
 
@@ -183,8 +172,6 @@ Python语言有33个保留字（也叫关键字）
 | **pass** | **raise** | **return** |
 | **try** | **while** | **with** |
 | **yield** | **FALSE** | **TRUE** |
-
-
 
 ## 数据类型
 
@@ -218,8 +205,6 @@ Python语言有33个保留字（也叫关键字）
 | --- | :---: | :---: | :---: | :---: | :---: |
 |  | 这 | 是 | 字 | 符 | ： |
 | 正向递增序号 | 0 | 1 | 2 | 3 | 4 |
-
-
 
 由左到右：正向
 
@@ -290,16 +275,12 @@ TempStr[0:-1]		#获取除最后一个字符串以外的
 | \\n | 换行，光标移动到下行首 |
 | \\r | 回车，光标移动到本行首 |
 
-
-
 #### 字符串操作符
 | 操作符及使用 | 描述 |
 | :---: | :---: |
 | x + y | 连接两个字符串 x 和 y |
 | n _ x 或 x _ n | 复制n次字符串x |
 | x in s | x 是 s 的子串，返回 True，否则 False |
-
-
 
 ##### 实例  获取星期字符串
 
@@ -348,8 +329,6 @@ print("星期" + weekStr[weekId-1])
 | chr(u) | u为Unicode编码，返回其对应的字符 |
 | ord(x) | x为字符，返回其对应的Unicode编码 |
 
-
-
 #### 字符串处理方法
 
 
@@ -368,8 +347,6 @@ print("星期" + weekStr[weekId-1])
 | str.center(width[,fillchar]) | 格式处理，字符串str根据宽度width居中，fillchar可选，"python".center(20, "=") = '=python=' |
 | str.strip(chars) | 从str中去掉在其左侧和右侧chars中列出的字符，"= python=".strip(" =np") = 'ytho' |
 | str.join(iter) | 在iter变量除最后元素外每个元素后增加一个str，主要用于字符串分隔等， ",".join("12345") = '1,2,3,4,5' |
-
-
 
 #### 字符串类型格式化
 
@@ -420,8 +397,6 @@ print("星期" + weekStr[weekId-1])
 5. <,>：数字的千位分隔符
 6. <.精度>：浮点数小数精度或者字符串最大输出长度
 7. <类型>：以什么类型将变量放入槽中整数类型 b, c, d, o, x, X    浮点数类型 e, E, f, %
-
-
 
 前三个一组，后三个一组
 
@@ -505,8 +480,6 @@ pow(2,pow(2,15))
 3. 八进制：     以0o或者0O开头，如 0o123，-0O123
 4. 十六进制： 以0x或者0X开头，如 0x9a，-0X89
 
-
-
 #### 浮点数类型
 
 
@@ -532,22 +505,21 @@ pow(10, -16)
 
 
 1. 浮点数间运算存在不确定尾数（因为浮点数对应二进制数是截取了53位的无限小数）
-2. 处理方法```python
-round(x, d)			# 对x四舍五入，保留d位小数
-0.1+0.2 == 0.3		# False
-round(0.1+0.2, 1)	# True
-```
 
-浮点数间运算及比较用
-不确定尾数一般发生在 pow(10, -16) 左右，round()有效
+2. 处理方法
 
+  ```python
+  round(x, d)			# 对x四舍五入，保留d位小数
+  0.1+0.2 == 0.3		# False
+  round(0.1+0.2, 1)	# True
+  ```
 
-
+  浮点数间运算及比较用
+  不确定尾数一般发生在 pow(10, -16) 左右，round()有效
 ##### 科学计数法
 
 
 字母e或E作为幂的符号，以10为基数
-
 
 ```python
 <a>e<b>			# a * pow(10, b)
@@ -597,8 +569,6 @@ z.imag							# 获得虚部
 | x %= y | x = x % y |
 | x **= y | x = x ** y |
 
-
-
 #### 数值运算函数
 | 函数及使用 | 描述 |
 | :---: | :---: |
@@ -612,7 +582,100 @@ z.imag							# 获得虚部
 | float(x) | 强制类型转换为浮点数， float(123) = 123.0, float("123") = 123.0 |
 | complex(x) | 强制转换类型为复数，complex(4) = 4 + 0j |
 
+#### 实例 天天向上系列
 
+##### v1  1‰的力量
+
+一年365天，每天进步1‰，累计进步多少
+
+一年365天，每天退步1‰，累计退步多少
+
+```python
+dayup = pow(1.001, 365)
+daydown = pow(0.999, 365)
+print("向上：{:.2f}, 向下：{:.2f}".format(dayup, daydown))
+```
+
+结果
+
+```
+向上：1.44, 向下：0.69
+```
+
+##### v2  5‰和1%的力量
+
+一年365天，每天进步5‰或1%，累计进步多少
+
+一年365天，每天退步5‰或1%，累计剩下多少
+
+```python
+#天天向上 5‰和1%的力量
+dayfactor = 0.005
+dayup = pow(1+dayfactor, 365)
+daydown = pow(1-dayfactor, 365)
+print("向上：{:.2f}, 向下：{:.2f}".format(dayup, daydown))
+```
+
+结果
+
+```
+向上：6.17, 向下：0.16
+```
+
+##### v3  工作日的力量
+
+一年365天，一周5个工作日，每天进步1%
+
+一年365天，一周2个休息日，每天退步1%
+
+```python
+# 天天向上的力量
+dayup = 1.0
+dayfactor = 0.01
+for i in range(365):
+    if i % 7 in [6,0]:
+        dayup = dayup*(1-dayfactor)
+    else:
+        dayup = dayup*(1+dayfactor)
+        
+print("工作日的力量：{:.2f}".format(dayup))
+```
+
+结果
+
+```
+工作日的力量：4.63
+```
+
+##### v4  工作日的努力
+
+工作日模式要努力到什么水平，才能与每天努力1%一样
+
+思路一： 数学思维，列公式
+
+思路二： 暴力求解，用计算机模拟，用“笨办法”试错
+
+```python
+# 天天向上的力量-工作日的努力
+def dayUP(df):
+    dayup = 1
+    for i in range(365):
+        if i % 7 in [6, 0]:
+            dayup = dayup * (1 - 0.01)
+        else:
+            dayup = dayup * (1 + df)
+    return dayup
+dayfactor = 0.01
+while dayUP(dayfactor) < 37.78:
+    dayfactor += 0.001
+print("工作日的努力参数是：{:.3f}".format(dayfactor))
+```
+
+结果
+
+```
+工作日的努力参数是：0.019
+```
 
 ### 列表类型
 
@@ -648,18 +711,19 @@ TempStr[-1] in ['C', 'c']	#判断TempStr赋值后的最后一个字符是不是C
 作用
 
 
-1. 给变量赋予新的数据值```python
- C = (eval(TempStr[0:-1]) - 32)/1.8	 #右侧运算结果赋给变量C
-```
+1. 给变量赋予新的数据值
 
-2. 右侧的数据类型同时作用于变量```python
+    ```python
+    C = (eval(TempStr[0:-1]) - 32)/1.8	 #右侧运算结果赋给变量C
+    ```
+2. 右侧的数据类型同时作用于变量
+
+```python
 TempStr = input("请输入带有符号的温度值：")
 '''	 
     input()返回一个字符串，TempStr也是字符串
 '''
 ```
-
-
 
 
 ### 分支语句
@@ -793,8 +857,6 @@ print(grade)
 | x or y | 逻辑或 |
 | not x | 逻辑非 |
 
-
-
 #### 程序异常处理 try..except..
 
 
@@ -874,8 +936,6 @@ print("BMI指标为：国际“{0}”,国内“{1}”".format(who,nat))
 1. 多分支条件之间的覆盖
 2. 可运行但是不正确，关注分支
 3. 读程序先看分支，可以提高效率
-
-
 
 ## 函数
 
@@ -1184,36 +1244,41 @@ print(a,b,c)
 #### 使用规则1 局部变量和全局变量是不同的变量
 
 
-1. 局部变量是函数内部的占位符，与全局变量可能重名但不同```python
-n, s = 10, 100			# 此时 s 是全局变量
-def fact(n):
-    s = 1				# 此时 s 是局部变量
-    for i in range(1, n+1):
-        s *= i
-    return s			# 此处局部变量 s = 3628800
-print(fact(n), s)		# 此处全局变量 s = 100
-```
+1. 局部变量是函数内部的占位符，与全局变量可能重名但不同
 
-结果```
+  ```python
+  n, s = 10, 100			# 此时 s 是全局变量
+  def fact(n):
+   s = 1				# 此时 s 是局部变量
+   for i in range(1, n+1):
+       s *= i
+   return s			# 此处局部变量 s = 3628800
+  print(fact(n), s)		# 此处全局变量 s = 100
+  ```
+
+  结果
+```
 3628800 100
 ```
 
 2. 函数运算结束后，局部变量被释放（即不存在了）
-3. 可以使用 global 保留字在函数内部使用全局变量```python
-n, s = 10, 100			
-def fact(n):
-    global s				
-    for i in range(1, n+1):
-        s *= i
-    return s			
-print(fact(n), s)
-```
 
-结果```
+3. 可以使用 global 保留字在函数内部使用全局变量
+
+  ```python
+  n, s = 10, 100			
+  def fact(n):
+   global s				
+   for i in range(1, n+1):
+       s *= i
+   return s			
+  print(fact(n), s)
+  ```
+
+  结果
+```
 362880000 362880000
 ```
-
-
 
 
 #### 规则2 局部变量为组合数据类型且未创建，等同于全局变量
@@ -1264,8 +1329,6 @@ print(ls)
 2. 使用 lambda 保留字定义，函数名是返回结果
 3. 用于定义简单的、能够在一行内表示的函数
 
-
-
 ```python
 >>>f = lambda x, y : x + y
 >>>f(10, 15)
@@ -1292,8 +1355,6 @@ print(f())
 3. lambda函数有固定使用方式，建议逐步掌握
 4. 一般情况使用 def 定义普通函数
 
-
-
 ## 程序的循环结构
 
 
@@ -1314,9 +1375,7 @@ for <循环变量> in <遍历结构> :
 3. 每次循环，所获得元素放入循环变量，并执行一次语句块
 4. 由多个元素构成的数据类型都可以用 for..in.. 来遍历包含元素
 
-
-
-##### 计数循环 for...in range()
+#### 计数循环 for...in range()
 
 
 按照一定次数循环执行一组语句
@@ -1381,7 +1440,7 @@ hello: 4
 print()中间加 ‘，’，输出结果之间自动加空格
 
 
-##### 字符串遍历循环 for c in s...
+#### 字符串遍历循环 for c in s...
 
 
 ```python
@@ -1410,7 +1469,7 @@ P,y,t,h,o,n,1,2,3,
 ```
 
 
-##### 列表遍历循环 for item in ls...
+#### 列表遍历循环 for item in ls...
 
 
 ```python
@@ -1436,7 +1495,7 @@ for item in [123, "PY", 456] :
 ```
 
 
-##### 文件遍历循环
+#### 文件遍历循环
 
 
 ```python
@@ -1523,7 +1582,7 @@ PYHON
 跳出并结束当前整个循环，并执行循环后的语句
 
 
-###### 单层循环实例
+##### 单层循环实例
 
 
 ```python
@@ -1542,7 +1601,7 @@ PY
 ```
 
 
-###### 多层循环实例
+##### 多层循环实例
 
 
 ```python
@@ -1623,8 +1682,6 @@ else 作用
 2. else 语句块作为“正常”完成循环的奖励
 3. 与异常处理中 else 的用法相似
 
-
-
 ```python
 print("无break")
 for c in "PYTHON" :
@@ -1683,8 +1740,6 @@ PY
 如何绘制一个弧形？
 如何绘制一个蟒蛇？
 
-
-
 #### 算法代码
 
 
@@ -1715,17 +1770,13 @@ turtle.done()								#运行后程序不退出
 基本代码分析
 
 
-1. tutle.xxx：[.**() 编码风格**]()
-2. 库引用——扩充Python程序功能的方式```python
-import <库名>
-<库名>.<函数名>(<函数参数>)
-```
+1. tutle.xxx：是一种编码风格
 
+2. 库引用——扩充Python程序功能的方式
 
-
-
+  import <库名>
+  <库名>.<函数名>(<函数参数>)
 ##### 简洁代码
-
 
 ```python
 from turtle import* 
@@ -1754,16 +1805,11 @@ done()
 from <库名> import <函数名>
 from <库名> import *
 <函数名>(<函数参数>)
-```
-
 2. 优点： 简洁，不用频繁使用 turtle.
 缺点： 与用户自定义的函数重名，产生函数冲突
 使用： 程序短，只使用定义库
 
-
-
 ##### 建议代码风格
-
 
 ```python
 import turtle as t								 
@@ -1788,16 +1834,10 @@ t.done()
 分析
 
 
-1. 库引用方法——as 配合 import 使用```python
+1. 库引用方法——as 配合 import 使用
 import <库名> as <库别名>
 <库别名>.<函数名>(<函数参数>)
-```
-
-2. 优点： 给调用的外部库关联一个更短、更适合自己的名字
-
-
-
-                   冗余少，避免函数重名
+2. 优点： 给调用的外部库关联一个更短、更适合自己的名字； 冗余少，避免函数重名              
 
 
 #### 绘图窗体
@@ -1813,7 +1853,6 @@ width, height：窗口本身的宽度、高度
 
 
 setup()不是必须的
-
 
 ```python
 turtle.setup(800, 400, 0, 0)			#在屏幕左上角
@@ -1928,18 +1967,25 @@ turtle.colormode(255)			#RGB整数值模式
 #### 画笔控制函数
 
 
-1. 画笔操作后一直有效，一般成对出现##### turtle.penup()
+1. 画笔操作后一直有效，一般成对出现
 
-别名：turtle.pu() 抬起画笔，海龟在飞行##### turtle.pendown()
+   #####  turtle.penup()
 
-别名：turtle.pd() 落下画笔，海龟在爬行
-2. 笔画设置后一直有效，直至下次重新设置##### turtle.pensize(width)
+   别名：turtle.pu() 抬起画笔，海龟在飞行
 
-别名 turtle.width(width)  画笔宽度，海龟的腰围##### turtle.pencolor(color)
+   ##### turtle.pendown()
 
-画笔颜色，海龟在涂装，color 颜色字符串或RGB值
+   别名：turtle.pd() 落下画笔，海龟在爬行
 
+2. 笔画设置后一直有效，直至下次重新设置
 
+   ##### turtle.pensize(width)
+
+   别名 turtle.width(width)  画笔宽度，海龟的腰围
+
+   ##### turtle.pencolor(color)
+
+   画笔颜色，海龟在涂装，color 颜色字符串或RGB值
 
 ```python
 turtle.pencolor("purple")		     # 颜色字符串,小写
@@ -1990,8 +2036,6 @@ time库是Python中处理时间的标准库
 1. 计算机时间的表达
 2. 提供获取系统时间病格式化输出功能
 3. 提供系统级精确计时功能，用于程序性能分析
-
-
 
 使用
 
@@ -2055,8 +2099,9 @@ time.gmtime()
 
 结果
 
-
+```
 time.struct_time(tm_year=2021, tm_mon=3, tm_mday=7, tm_hour=9, tm_min=54, tm_sec=14, tm_wday=6, tm_yday=66, tm_isdst=0)
+```
 
 
 ### 时间格式化
@@ -2085,8 +2130,9 @@ time.strftime("%Y-%m-%d %H:%M:%S",t)
 
 结果
 
-
+```
 '2021-03-07 10:04:13'
+```
 
 | 格式化字符串 | 时期/时间说明 | 值范围 |
 | :---: | :---: | :---: |
@@ -2102,8 +2148,6 @@ time.strftime("%Y-%m-%d %H:%M:%S",t)
 | %p | 上/下午 | AM, PM |
 | %M | 分钟 | 00~59 |
 | %S | 秒 | 00~59 |
-
-
 
 #### strptime(str, tpl)
 
@@ -2122,8 +2166,9 @@ time.strptime(timeStr, "%Y-%m-%d %H:%M:%S")
 
 结果
 
-
+```
 time.struct_time(tm_year=2018, tm_mon=1, tm_mday=26, tm_hour=12, tm_min=55, tm_sec=20, tm_wday=4, tm_yday=26, tm_isdst=-1)
+```
 
 
 ### 程序计时应用
@@ -2153,8 +2198,9 @@ end - start
 
 结果
 
-
+```
 7.290818217000037
+```
 
 
 #### sleep(s)
@@ -2240,8 +2286,6 @@ print("------执行结束------")
 
 1. 不能换行，print() 需要被控制
 2. 要能回退，打印后光标退回到之前的位置，使用 \r
-
-
 
 ```python
 import time
@@ -2554,8 +2598,8 @@ import random ; s = [1,2,3,4,5,6,7,8,9] ; random.shuffle(s) ; print(s)
 
 ##### 一般数学公式
 
-
-$$\pi = \sum_{k=0}^\infty[\frac{1}{16^k}(\frac{4}{8k+1}-\frac{2}{8k+4}-\frac{1}{8k+5}-\frac{1}{8k+6}]
+$$
+\pi = \sum_{k=0}^\infty[\frac{1}{16^k}(\frac{4}{8k+1}-\frac{2}{8k+4}-\frac{1}{8k+5}-\frac{1}{8k+6}]
 $$
 
 
@@ -2651,12 +2695,14 @@ import turtle, time
 def drawGap():			# 美化，线条间加一定间隔
     turtle.penup()
     turtle.fd(5)
+    
 def drawLine(draw):     # 绘制单段数码管
     drawGap()
     turtle.pendown() if draw else turtle.penup()
     turtle.fd(40)
     drawGap()
     turtle.right(90)
+    
 def drawDigit(digit):   # 根据数字绘制七段数码管
     drawLine(True) if digit in [2,3,4,5,6,8,9] else drawLine(False)
     drawLine(True) if digit in [0,1,3,4,5,6,7,8,9] else drawLine(False)
@@ -2683,6 +2729,7 @@ def drawDate(date):     # 获取要输出的数字
             turtle.write("日",font=("Arial", 18, "normal"))
         else:
             drawDigit(eval(i))      # 通过eval()函数将数字变为整数
+            
 def main():             # 设置主函数main来设置初始值
     turtle.setup(800, 350, 200, 200)
     turtle.penup()
@@ -2691,6 +2738,7 @@ def main():             # 设置主函数main来设置初始值
     drawDate(time.strftime("%Y-%m=%d+", time.gmtime()))
     turtle.hideturtle()
     turtle.done()
+    
 main()
 ```
 ### 举一反三
