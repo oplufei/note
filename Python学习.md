@@ -450,9 +450,39 @@ print("星期" + weekStr[weekId-1])
 
 分别呈现数字425的 二进制数，Unicode编码对应的字符形式，十进制，八进制，十六进制小写，十六进制大写
 
-
 '4.250000e+02,4.250000E+02,425.000000,42500.000000%'
 
+###### 槽的嵌套用法——星号三角形
+
+读入一个整数N，N是奇数，输出由星号字符组成的等边三角形，要求：‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‭‬‪‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‭‬‪‬ 
+
+第1行1个星号，第2行3个星号，第3行5个星号，依次类推，最后一行共N的星号。‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‭‬‪‬
+
+```python
+n = eval(input())
+for i in range(1,n+1,2):
+    print("{0:^{1}}".format('*'*i, n))
+    
+# 等价写法
+n = eval(input())
+for i in range(1,n+1,2):
+    print("{:^{}}".format('*'*i, n))
+```
+
+结果
+
+```python
+5
+  *  
+ *** 
+*****
+5
+  *  
+ *** 
+*****
+```
+
+槽中可以嵌套槽，用来表示宽度、填充等含义。
 
 ### 数字类型
 
@@ -668,7 +698,7 @@ def dayUP(df):
 dayfactor = 0.01
 while dayUP(dayfactor) < 37.78:
     dayfactor += 0.001
-print("工作日的努力参数是：{:.3f}".format(dayfactor))
+print("工作日的努力参数是: {:.3f}".format(dayfactor))
 ```
 
 结果
@@ -905,7 +935,7 @@ finally :
 ```
 
 
-#### 实例
+#### 实例 BMI指数
 
 
 ```python
@@ -2334,6 +2364,21 @@ for i in range(scale+1):
 print("\n"+"执行结束".center(scale//2,'-'))
 ```
 
+我自己喜欢的排版
+
+```python
+import time as t
+scale = 50
+start = t.perf_counter()
+for i in range(scale+1):
+    a = "*" * i
+    b = "." * (scale-i)
+    c = int(i/scale * 100)			# 强制转换整数，对应百分数的输出形式{:d}
+    dur = t.perf_counter() - start
+    print("\r{:d}%[{}->{}]{:.2f}s".format(c,a,b,dur), end="")
+    t.sleep(0.1)
+print("执行结束".center(scale//2, "-"))
+```
 
 #### 扩展
 
