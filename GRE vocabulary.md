@@ -56,25 +56,25 @@ novice n. / innovation n. / novel adj./n.
 
 ### sub/sup/sur
 
-subvert v.
+#### subvert v.
 
-to try to destroy the power and influence of a government or the established system
+- to try to destroy the power and influence of a government or the established system
 
-to destroy someone's beliefs or loyalty
+- to destroy someone's beliefs or loyalty
 
-vert - vers = to turn
+##### vert - vers = to turn
 
-subversive adj.
+###### subversive adj.
 
 subversive progaganda / literature
 
-suppress v.
+#### suppress v.
 
 ~press
 
 suppress a secret
 
-e.g
+##### e.g
 
 Leo Toistoy wrote many works of non fiction and professed _____ these explorations of ethics and religion compared with his novels and short stories. The fiction writer in him, however, was hard to ____. Handi murdd is a short novel with the breadth and power of an epic, with vivid characterization and intense storytelling that sweep the reader away. While the reader senses the moral concerns of the tale's creator, the novel is a far cry from the ___ of Toistoy's nonfiction.
 
@@ -128,27 +128,27 @@ K： nonfiction ethics religion
 
 =》G
 
-supplant v.
+#### supplant v.
 
 to take the place of a person or thing so that they are no longer used, no longer in a position of power etc
 
-surreptitious adj.
+#### surreptitious adj.
 
 done secretly or quickly because you do not want other people to notice
 
-~rept 
+##### ~rept 
 
-reptile n.
+###### reptile n.
 
-susceptible adj.
+#### susceptible adj.
 
-Older people are more susceptible to infections.
+Older people are more ***susceptible*** to infections.
 
-~cept = ~ ceive = to take
+##### ~cept = ~ ceive = to take
 
-accept
+###### accept
 
-receive
+###### receive
 
 be susceptible to sb/sth
 
@@ -156,33 +156,33 @@ be susceptible to sb/sth
 
 ### in/im
 
-incisive adj.
+#### incisive adj.
 
-cis - cut
+##### cis - cut
 
-Her questions were well-formulated and incisive.
+Her questions were well-formulated and ***incisive***.
 
-intricate adj.
+#### intricate adj.
 
-tric - trigue - trick
+##### tric - trigue - trick
 
-intrigue v./n.
+#### intrigue v./n.
 
 if something intrigues you, it interests you a lot because it seems strange or mysterious
 
-The novelty of the situation intrigued him.
+The novelty of the situation ***intrigued*** him.
 
-inclusiveness n.
+#### inclusiveness n.
 
 the quality of covering or dealing with a range of subjects or areas
 
-clus = close
+##### clus = close
 
-concclussion
+###### concclussion
 
-exclude exclusive exclusion include
+###### exclude exclusive exclusion include
 
-e.g
+##### e.g
 
 Contrary to its reputation for intellectual___, the 1950s was a decade exceptionally reich in wors of trenchant and far-reaching social criticism.
 
@@ -198,77 +198,79 @@ E. productivity
 
 K: Contrary-> 反向 <-> trenchant and far-reaching social criticism => B
 
-complacency n.
+###### complacency n.
 
-~place = please
+###### ~place = please
 
-impetuous adj.
+#### impetuous adj.
 
 tending to do things very quickly, without thinking carefully first, or showing this quality
 
-pet = seek
+##### pet = seek
 
-compete
+###### compete
 
-insouciance n.
+#### insouciance n.
 
 ~souci = 舒适
 
-instantaneous adj.
+#### instantaneous adj.
 
-modern methods of instantaneous communication
+modern methods of ***instantaneous*** communication
 
-instant
+##### instant
 
-~st = stand
+##### ~st = stand
 
-intrude v. formal
+#### intrude v.
 
-interupt daily
+[formal] = interupt [daily]
 
-trud = 突出
+##### trud = 突出
 
 intrude into sb's affairs
 
-invasive adj.
+#### invasive adj.
 
 = intrusive
 
-invade v.
+##### invade v.
 
-intoxicated adj.
+#### intoxicated adj.
 
-tox - poison 
+##### tox - poison 
 
-toxic adj.
+###### toxic adj.
 
 ## 向外系列
 
 ### e/ex
 
-exacerbate v.
+#### exacerbate v.
 
-acerb
+= aggravate = worsen = make worse = exasperate
 
-acerbic adj.
+##### acerb
 
-The recession has exacerbated this problem.
+###### acerbic adj.
 
-exhilatating adj.
+The recession has ***exacerbated*** this problem.
+
+#### exhilatating adj.
 
 情绪相关词汇  ex-  express
 
-hilarious adj.
+##### hilarious adj.
 
-an exhilarating experience
+an ***exhilarating*** experience
 
-expeditious adj.
+#### expeditious adj.
 
 quick and effective
 
-音变出来的词：ped - foot （p-f e-oo d-t） 
+##### 音变出来的词：ped - foot （p-f e-oo d-t） 
 
-centipede n.
+###### centipede n.
 
 centi-
 
@@ -278,67 +280,67 @@ millipede n.
 
 milli-
 
-extraneous adj.
+#### extraneous adj.
 
 = irrelevant
 
-be extraneous to sth
+be ***extraneous*** to sth
 
-explicable adj.
+#### explicable adj.
 
-explicate v. (on)
+##### explicate v. (on)
 
 explain sth in detail
 
-exasperate v.
+#### exasperate v.
 
 to make someone very annoyed by continuing to do something that upsets them
 
-It exasperates me to hear comments like that.
+It ***exasperates*** me to hear comments like that.
 
-exactitude n.
+#### exactitude n.
 
--tude 程度性，性质后缀
+##### -tude 程度性，性质后缀
 
-attitude
+###### attitude
 
-multitude
+###### multitude
 
 a multitude of = many
 
-exculpatory adj.
+#### exculpatory adj.
 
-culp - fault
+##### culp - fault
 
-exculpate v.
+###### exculpate v.
 
-to prve that someone is not guilty of something
+to prove that someone is not guilty of something
 
-culprit
+###### culprit
 
 the real culprit 罪魁祸首
 
-exiguous adj.
+#### exiguous adj.
 
 (formal) very small in size or amount; hardly enough 
 
-exiguous earnings
+##### exiguous earnings
 
-~ig = act 行为，做
+###### ~ig = act 行为，做
 
 精细，小的量-》变化后-》带点贬义的意思
 
-K： 在浊辅音 b d g 和半辅音 j l m n r v 前缩写成e- ； 在字母f前同化为ef-
+### K： 在浊辅音 b d g 和半辅音 j l m n r v 前缩写成e- ； 在字母f前同化为ef-
 
-ebullient adj.
+#### ebullient adj.
 
-~bull = boil -> bull 公牛冲出去
+##### ~bull = boil -> bull 公牛冲出去
 
-a naturally ebullient personality
+a naturally ***ebullient*** personality
 
-educate v.
+#### educate v.
 
-~duce 
+##### ~duce 
 
 introduce
 
@@ -346,346 +348,349 @@ produce
 
 reduce
 
-egress
+#### egress
 
 progress
 
-~gress = go
+##### ~gress = go
 
-eject v.
+#### eject v.
 
-emancipate v.
+#### emancipate v.
 
-Slaves were emancipated in 1834.
+Slaves were ***emancipated*** in 1834.
 
-man - hand
+##### man - hand
 
-cip - cept - ceiv- to take
+##### cip - cept - ceiv- to take
 
-manual / manacle / manuscript
+###### manual / manacle / manuscript
 
--acle 
+##### -acle 
 
-obstacle n.
+###### obstacle n.
 
-script = scrib = write
+##### script = scrib = write
 
-enumerate v.
+###### enumerate v.
 
 = list itemize
 
-I enumerate the work that will have to be done.
+I ***enumerate*** the work that will have to be done.
 
-eradicate v.
+###### eradicate v.
 
 to completely get rid of something such as a disease or a social problem
 
-We can eradicate this disease from the world.
+We can ***eradicate*** this disease from the world.
 
-~rad = root
+###### ~rad = root
 
-evaporate v.
+#### evaporate v.
 
-vapor - water
+##### vapor - water
 
-eviscerate v.
+#### eviscerate v.
 
-visver 内脏
+viscus 内脏
 
-elucidate v. (写作词汇重要) 
+#### elucidate v. (写作词汇重要) 
 
 to explain sth. that is difficult to understand by providing more information
 
-luc 光
+##### luc 光
 
-The full picture has not yet been elucidated.
+The full picture has not yet been ***elucidated***.
 
-elusive adj.
+#### elusive adj.
 
-She managed to get an interview with that elusive man.
+She managed to get an interview with that ***elusive*** man.
 
-She enjoys a firm reputation in this country but wider international success has been elusive.
+She enjoys a firm reputation in this country but wider international success has been ***elusive***.
 
-eliminate v.
+#### eliminate v.
 
-to completely ge rid of sth. taht is unnecessary or unwanted
+to completely get rid of sth that is unnecessary or unwanted
 
-~limin
+##### ~limin = limit
 
-The credit card eliminates the need for cash or cheques.
+The credit card ***eliminates*** the need for cash or cheques.
 
-evanescent adj.
+#### evanescent adj.
 
-escent = esce + ent
+##### escent = esce + ent
 
-evanesce = gruadually disapear
+##### evanesce = gruadually disapear
 
-van = empty
+##### van = empty
 
-the evanescent scents of summer herbs
+the ***evanescent*** scents of summer herbs
 
 词根提炼与速记
 
-van - vac - empty
+##### van - vac - empty
 
-vanish v.
+##### vanish v.
 
-vanish without trace
+***vanish*** without trace
 
-vacant adj.
+##### vacant adj.
 
-vacuous adj.
+##### vacuous adj.
 
 having or showing a lack of thought or intelligence 
 
-a vacuous expression
+a ***vacuous*** expression
 
-evacuate v.
+##### evacuate v.
 
-evacuate the building(fireman said)
+***evacuate*** the building (fireman said)
 
-evanesce v.
+##### evanesce v.
 
 dissipate like vapor
 
 ## 前系列
 
-### pre 状态的
+### pre 
 
-precursor n.
+更强调状态的
+
+#### precursor n.
 
 a person or thing that comes before another of the same kind
 
-curs = run
+##### curs = run
 
-excursion n.
+###### excursion n.
 
-a precursor of modern jazz
+a ***precursor*** of modern jazz
 
-prescient adj.
+#### prescient adj.
 
-sci = to know sth.
+##### sci = to know sth
 
-science
+###### science
 
-conscious
+###### conscious
 
 able to imagine or know what will happen in the future
 
-predilection n.
+#### predilection n.
 
 a preference or special liking for sth.
 
-lect = choice
+##### lect = choice
 
-elect
+###### elect
 
-colect
+###### colect
 
-preclude v.
+#### preclude v.
 
 precent from happening; make impossible
 
 preclude sb from doing sth.
 
-Age alone will not preclude hin from standing as a candidate.
+Age alone will not ***preclude*** hin from standing as a candidate.
 
 词根提炼与速记
 
-clud - clus - close
+##### clud - clus - close
 
-include v.
+###### include v.
 
-exclude v.
+###### exclude v.
 
-conclude v.
+###### conclude v.
 
-seclude v.
+###### seclude v.
 
-seclude oneself from the world 与世隔绝
+***seclude*** oneself from the world 与世隔绝
 
-premeditate v.
+#### premeditate v.
 
-think out or plan(an action, especially a crime) beforehand
+think out or plan (an action, especially a crime) beforehand
 
-premeditated murder
+***premeditated*** murder
 
-meditate v. 
+##### meditate v. 
 
-presumption n.
+#### presumption n.
 
- sumpt - sum
+#####  sumpt - sum
 
-She was enraged by his presumption.
+She was enraged by his ***presumption***.
 
-precedent n.
+#### precedent n.
 
-~ced = go,walk
+##### ~ced = go,walk
 
-unprecedented adj. 史无前例的
+##### unprecedented adj. 史无前例的
 
-presage v.
+#### presage v.
 
-be a sigh or warning that (sth. typically sth. bad) will happen
+be a sigh or warning that (sth， typically sth bad) will happen
 
-predominant adj.
+#### predominant adj.
 
 more powerful, more common , or more easily noticed than others
 
-domestic adj.
-
-dom = home = control
-
-gross domestic product
-
-dominate v. = control
-
 词根提炼与速记
 
-dom 
+##### dom = home = control
 
-domestic adj.
+###### domestic adj.
 
-domesticate v.
+gross domestic product—— GDP
 
-dominate v.
+###### domesticate v.
 
-The industry is dominated by five multinational companies.
+###### dominate v. = control
 
-The church dominates the city.教堂俯瞰全城。（耸立于）
+The industry is ***dominated*** by five multinational companies.
 
-indomitable adj.
+The cathedral ***dominates*** the city.教堂俯瞰全城。（耸立于）
 
-Alice was a woman of indomitable spirit.
+###### indomitable adj.
+
+Alice was a woman of ***indomitable*** spirit.
 
 ### pro
 
 偏动态
 
-proliferation n.
+#### proliferation n.
 
-the proliferation of global media networks
+the ***proliferation*** of global media networks
 
-provenance n.
+#### provenance n.
 
-ven = come
+##### ven = come
 
-The provenance of the paintings is unknown.
+The ***provenance*** of the paintings is unknown.
 
-prominence n.
+#### prominence n.
 
 The more laws and order are made prominent, the more thieves and robbers there will be.
 
 Lao Tzu
 
-~min 突出
+##### ~min 突出
 
-prominent adj. just famous
+##### prominent adj. 
 
-eminent adj.
+-> just famous
+
+##### eminent adj.
 
 being famous, important and respected
 
-prophetic adj.
+#### prophetic adj.
 
-be prophetic of sth
+be ***prophetic*** of sth
 
-propitious adj.
+#### propitious adj.
 
-~pit = ~pet = to seek
+##### ~pit = ~pet = to seek
 
-proscribe v.
-
-cribe = write
-
-prescribe 开处方
+#### proscribe v.
 
 = forbid = prohibit
 
 to officially say that stn is nor allowed to exist or be done
 
-proscription n.
+##### cribe = write
 
-prognosis n.
+##### prescribe 开处方
+
+##### proscription n.
+
+#### prognosis n.
 
 a doctor's opinion of how an illness or desease will develop
 
 a judgment about the future, based on information or experience
 
-probabilistic adj.
+#### probabilistic adj.
 
-probabilisen
+##### probabilism n.
 
-proclivity n.
+#### proclivity n.
 
-a tendency to behave in a particular way, or to like a partivular thing - used especially about sth bad
+a tendency to behave in a particular way, or to like a particular thing - used especially about sth bad
 
-propensity n.
+#### propensity n.
 
 a natural tendency to behave in a particular way
 
-have a propensity to do / for doing sth
+have a ***propensity*** to do / for doing sth
 
-prototypical adj.
+#### prototypical adj.
 
 very typical of a group or type
 
-provincialism n.
+#### provincialism n.
 
-provoke v.
-
-vok - voc - voice 
+#### provoke v.
 
 词根提炼与速记
 
-vocalization n.
+##### vok - voc - voice 
 
-invoke v.
+###### vocalization n.
 
-evoke v.
+###### invoke v.
+
+###### evoke v.
 
 喊出来的感觉
 
-prodigious adj.
+#### prodigious adj.
 
 very large or great in a surprising or impressive way
 
-Some galaxies seem to release prodigious amounts of energy.
+Some galaxies seem to release ***prodigious*** amounts of energy.
 
-profligacy n.
+#### profligacy n.
 
 the spending of too much money or the using of too much of sth
 
-~flig = flict = 拽
+##### ~flig = flict = 拽
 
-conflict v.
+###### conflict v.
 
-fore
+### fore-
 
-foresee v.
+#### foresee v.
 
 unforeseen adj.
 
-forestall v.
+#### forestall v.
 
 to prevent sth from happening or prevent sb from doing sth by doing sth first
 
-Large numbers of police were in the square to forestall any demonstrations.
+Large numbers of police were in the square to ***forestall*** any demonstrations.
+
+## 后系列
 
 ### post-
 
-post-war adj.
+#### post-war adj.
 
-postscript n.  p.s.
+#### postscript n.  p.s.
 
-postmodernism n.
+[信末的]附笔，补充说明，结尾片花
 
-postpone v.
+#### postmodernism n.
 
-postpone doing sth
+#### postpone v.
 
-~pone = pon = 放
+***postpone*** doing sth
 
-component n. 成分
+They've decided to ***postpone*** having a family for a while.
 
-They've decided to postpone having a family for a while.
+##### ~pone = pon = 放
+
+###### component n. 成分
+
