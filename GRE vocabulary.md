@@ -694,3 +694,564 @@ They've decided to ***postpone*** having a family for a while.
 
 ###### component n. 成分
 
+## re- again back against
+
+recapitulate v.
+
+t repeat the main points of sth taht has just been said
+
+= recap v.
+
+cap - head
+
+capital n./adj.
+
+capitulate v.
+
+repudiate v.
+
+He strongly repudiated any suggestion that he had acted illegally.
+
+pud - feel shame
+
+impudent adj.
+
+revitalize v.
+
+to put new strength or power into sth
+
+They hope to rebitalize the neighborhood by probiding beter housing.
+
+~vit = ~viv = ~vigor 生命
+
+vital revive survive
+
+replicate v.
+
+= reproduce v.
+
+the ability of DNA to replicate itself
+
+DNA: deoxyribonucleic acid
+
+~plic
+
+duplicate v.
+
+to copy sth exactly
+
+~du = dubble
+
+regurgitate v.
+
+bring (swallowed food) up again to the mouth
+
+repeat(information) without analyzing or comprehending it
+
+eg.
+
+Wilson is wont to emphasize the ___ of ants, how ants with full stomachs will regurgitate liquid food for those without , or how the old will fight so the young can survive.
+
+A. beneficence
+
+B. altruism
+
+C. unpredictability
+
+D. intelligence
+
+E. fecundity
+
+F. fertility
+
+K:
+
+be wont to do 总是，习惯
+
+根据后面内容，空要 正面
+
+fic - fac - fact  做的概念
+
+A. 做好事
+
+B. 利他主义
+
+reverberate v.
+
+The bang reverberated through the house.
+
+The room reverberated with laughter.
+
+The events of 911 will reverberate through history.
+
+~ver = voice
+
+rejuvenate v.
+
+We must always change, renew, rejuvenate ourselves; otherwise we harden.
+
+gede
+
+~juven 年轻概念
+
+juvenile adj. 
+
+resent v.
+
+to feel angry or upset about a situation or about sth that someone has done, especially because you think that it is not fair
+
+sent - sens = to feel
+
+consent v. 
+
+consensus n.  reach a consensus
+
+dissent v. n. = disagreement
+
+If you dissent, you express disagreement with a decision or opinion, especially one that is supported by most people or by people in authority.
+
+"向中间"系列
+
+inter
+
+interdependence n.
+
+interrelationship n.
+
+e.g.
+
+Although political events in different countries were not(i) ___ in the 19th century, their interrelationship (ii)-- compared with the present, when interdependence has become far greater:(iii)--- ceased to be an option.
+
+Blank(i)
+
+A. unconnected
+
+B. trivial
+
+C. simultaneous
+
+Blank(ii)
+
+D. conditional
+
+E. superficial
+
+F. transparent
+
+Blank(iii)
+
+G.isolationism
+
+H. resilience
+
+I. idealism
+
+~sim = same
+
+ ceased to be an option = 停止成为选择，不再是选项
+
+AEG
+
+interaction n. = interplay
+
+inter开头的经常表示干涉、打扰的含义
+
+interfere v.
+
+to deliberately get involved in a situation where you are not wanted or needed
+
+Anxiety can interfere with children's performance at school.
+
+intervene v.
+
+to become involved in an argument, fight, or other difficult situation in order to change what happens
+
+~vene = come
+
+mid (middle)
+
+midday n.
+
+midnight n.
+
+immediately adv.
+
+Mediterranean adj./n.
+
+~terr = 土地 地球概念的
+
+territory n.
+
+terrain n. 
+
+同形异源
+
+pseudo- = fake untrue
+
+否定前缀
+
+un-
+
+untethered adj.
+
+not tied or limited with or as if with a tether
+
+unparalleled adj.
+
+an achievement unparalleled in sporting history
+
+unimpeachable adj.
+
+unimpeachable morals
+
+unconscious adj.
+
+sci - to know
+
+prescient-
+
+加强词根拓展能力，看到词根想到背过什么次
+
+subconsciousness n. 
+
+unwavering adj.
+
+unwavering support
+
+unpretentious adj.
+
+unpretentiousness n.
+
+pretend v.
+
+intend v. intention n.
+
+unequivocal adj.
+
+equivocal adj.
+
+equi - equal
+
+voc - voice
+
+evoke v.
+
+vocolization n.
+
+invoke v.
+
+uncanny adj.
+
+very strange and difficult to explain
+
+an uncanny coincidence
+
+can - can - cogn - kn 认知概念
+
+recognise v.
+
+unambiguous adj.
+
+a statement, instruction etc that is unambiguous is clear and easy to understand because it can only mean one thing
+
+am- = two
+
+unprecedented adj.
+
+unprecedented economic growth
+
+cede - ceed - cess - to go
+
+precede v.
+
+precedent n.
+
+exceed v.
+
+proceed v.
+
+unencumbered adj.
+
+not having any burden or impediment
+
+encumber = burden = impediment
+
+unabated adj. 
+
+= undiminished adj.
+
+~mini
+
+e.g.
+
+Although we no longer have to rely on salt to keep food from spoiling, our appetite for it is_____________ : most people eat much more salt than they need.
+
+A. involuntary
+
+B. inconstant
+
+C. unabated
+
+D. unpredictable
+
+E. undiminished
+
+F. insatiable
+
+C E
+
+不知不觉的
+
+多变的 constant 经常的
+
+未减少的
+
+不可预测的
+
+未减弱减少的
+
+贪得无厌的
+
+dis
+
+disparate adj.
+
+consisting of things or people that are very different and not related to each other
+
+a meeting covering many disparate subjects
+
+~par
+
+discursive adj.
+
+discussing many different ideas, facts etc, without always having a clear purpose
+
+~curs
+
+excursion n.
+
+disparage v.
+
+When men are full of envy they disparage everhthing, whether it be good or bad.
+
+Tacitus
+
+~pa 平等概念的
+
+pair
+
+diffidence n.
+
+modesty or shyness resulting from a lack of self-confidence
+
+diffuse v.
+
+The pollutants diffuse into the soil.
+
+Their ideas diffused quickly across Europe.
+
+diffusion n.
+
+~fuse - to pour
+
+confuse v.
+
+refuse v.
+
+infuse v.
+
+infuse a project with enthusiasm
+
+suffuse v.
+
+gradually spread through or over
+
+Hot color suffused her cheeks.
+
+transfuse v.
+
+be trasfused with sth (joy, excitement)
+
+transfusion n.
+
+dilution n.
+
+lut - luv- lav -lau - to wash
+
+lavatory n.
+
+laundry n.
+
+alluvial adj.
+
+dilatory adj.
+
+slow in doing sth
+
+diverting adj.
+
+entertaining and amusing
+
+It was a witty and diverting program.
+
+~vert 
+
+subverb v.
+
+de- not, down
+
+demoralize v.
+
+to reduce or destroy someone's courage or confidence
+
+He demoralizes her with his constant criticism. 
+
+morale n. 精神面貌
+
+devolve v.
+
+vol - volv - volut = 卷，转
+
+evolve v.
+
+involve v.
+
+revolution n.
+
+delusive adj.
+
+giving a false or misleading impression
+
+illusion
+
+degenerative adj.
+
+A degenerative disease or condition is one that gets worse as time progresses.
+
+degenerate v.
+
+gen - to give birth, to produce
+
+generate v.
+
+genesis n.
+
+the beginning or origin of sth
+
+ethnogeny n.
+
+~eth 民族概念的
+
+ethnic adj.
+
+genealogy n. the study of family tree
+
+indigenous adj. 土著的
+
+primogenitor n.
+
+= ancestor
+
+~prim = first = primary
+
+heterogeneous adj.
+
+consisting of many different kinds of people or things
+
+gen- 种族、种类的概念
+
+genre n. 
+
+deception n. 
+
+deceptive adj.
+
+cept - ceive - to take
+
+receive v.
+
+perceive v.
+
+per- 每一个，都，完全
+
+if you perceive sth, you see, notice or realize  it especially when it not obvious
+
+conceive v.
+
+concept n.
+
+deplore v.
+
+to disapprove of sth very strongly and criticize it severely, especially publicly
+
+deteriorate v.
+
+= exacerbate v.
+
+Grant's health steadily deteriorated.
+
+The argument deteriorated into a fight.
+
+deleterious adj.
+
+= harmful = detrimental
+
+be deleterious to sb/sth
+
+the deleterious effects of smoking
+
+in/im/il/ir - not
+
+indolent adj.
+
+innocuous adj.
+
+not offensive, dangerous, or harmful
+
+noc - nox - harm/poison
+
+obnoxious adj.
+
+bonoxious odors
+
+ob- 强调的概念，作为前缀有很多意思
+
+incomprehensible adj.
+
+intractable adj.
+
+intractable economic problems/ intractable pain
+
+tract - drag
+
+inexorable adj.
+
+Adpat or perish, now as ever, is nature's inexorable imperative.
+
+H.G.Wells
+
+~or - 说话的概念
+
+insatiable adj.
+
+our insatiable thirst for knowledge
+
+stay hungry stay foolish
+
+求知若渴，大智若愚
+
+~sat = 满意
+
+imprudence n.
+
+prudence n.
+
+inexplicable adj.
+
+too unsual or strange to be explained or understood
+
+explicate v. = expound
+
+explain an idea in detail
+
+It's essentially a simple notion, but explicating it is difficult.
