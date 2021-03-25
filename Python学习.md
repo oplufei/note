@@ -1528,11 +1528,94 @@ n(n-1)! &\text{}otherwise
 \end{cases}
 $$
 
+##### 分析
+
+使用函数 + 分支语句
+
+1. 递归本身是一个函数，需要函数定义方式描述
+2. 函数内部，采用分支语句对输入参数判断
+3. 基例和链条，分别编写对应代码
+
+##### 代码（定义函数通过调用使用）
+
 ```python
-def
+def fact(n):
+    if n == 0:
+        return 1
+    else :
+        return n*fact(n-1)
 ```
 
+##### 递归实例 字符串反转
 
+###### 使用切片
+
+```python
+s[::-1]
+```
+
+###### 使用递归
+
+```python
+def rvs(s):
+    # 判断基例——最小的字符串——空——反转是自身
+    if s == "":
+        return s
+    else :
+    # 构造链条
+        return rvs(s[1:]+s[0])
+```
+
+##### 递归实例 斐波那契数列
+
+$$
+F(n) = \begin{cases}
+1 &\text{}n=1\\
+1 &\text{}n=2\\
+F(n-1)+F(n-2) &\text{}otherwise
+\end{cases}
+$$
+
+```python
+def f(n):
+    if n == 1 or n == 2:
+        return 1
+    else :
+        return f(n-1)+f(n-2)
+```
+
+##### 汉诺塔
+
+三根柱子，一根柱子从下往上按照大小顺序摞着64片黄金圆盘，把圆盘从下面开始按大小顺序重新摆放在另一根柱子上，按规定，小圆盘上不能放大圆盘，三根柱子之间一次只能移动一个圆盘
+
+```python
+count = 0
+def hanoi(n, src, dst, mid):
+    global count
+    if n == 1:
+        print("{}:{}->{}".format(1,src,dst))
+        count += 1
+    else :
+        hanoi(n-1, src, mid, dst)
+        print("{}:{}->{}".format(n,src,dst))
+        count += 1
+        hanoi(n-1, mid, src, dst)
+hanoi(3, "A", "B", "C")
+print(count)
+```
+
+结果
+
+```
+1:A->B
+2:A->C
+1:B->A
+3:A->B
+1:C->B
+2:C->A
+1:B->C
+7
+```
 
 ## 程序的循环结构
 
@@ -2882,6 +2965,7 @@ print("运行时间是：{:.5f}s".format(perf_counter()-start))
 1. 程序性能： 关注循环
 2. 计算思维： 数学——计算
 2. 特定图形面积，可用蒙特卡罗方法，工程计算中常用
+
 ## 综合实例——绘制七段数码管
 
 ### 基本思路
@@ -2954,3 +3038,40 @@ main()
 绘制带小数点的七段数码管
 带刷新的时间倒计时效果
 绘制高级的数码管
+
+## 第三方库-PyInstaller库
+
+使用前需要额外安装
+
+官网： http://www.pyinstaller.org
+
+### 安装方法
+
+cmd (command)命令行 ，运行 pip 指令
+
+```c
+pip install pyinstaller
+```
+
+### 简单使用
+
+源代码目录下，运行 cmd 
+
+```c
+pyinstaller -F <文件名.py>
+```
+
+生成三个新目录： build、pycache、dist
+
+ build、pycache 可以删除不影响
+
+dist里面的 .exe 文件为可执行文件
+
+### 常用参数
+
+| 参数 |   描述   |
+| :--: | :------: |
+|  -h  | 查看帮助 |
+|      |          |
+|      |          |
+
