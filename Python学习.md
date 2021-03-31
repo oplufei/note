@@ -2537,6 +2537,22 @@ PY
 
 用 else 可以判断程序是否被 break 结束，利于程序逻辑设计
 
+## 文件
+
+### 理解
+
+类型
+
+使用
+
+打开文件
+
+关闭文件
+
+文件内容的读取
+
+数据的文件写入
+
 
 ## Python标准库——turtle库
 
@@ -3737,6 +3753,186 @@ main()
 
 ## 第三方库——jieba库
 
+### 基本
+
 优秀的中文分词第三方库
 
 中文文本之间每个汉子是连续书写的，需要通过特殊手段（即分词）获得单个的词语
+
+#### 安装
+
+pip install jieba
+
+#### 分词原理
+
+1. 通过中文词库确定汉字之间的关联概率
+2. 汉字间概率大的组成词组，形成分词结果
+3. 除了分词，还可以添加自定义词组
+
+#### 使用
+
+##### 精确模式
+
+把文本精确的切分开，不存在冗余单词，最常用
+
+##### 全模式
+
+把文本中所有可能的词语都扫描出来，有冗余
+
+##### 搜索引擎模式
+
+在精确模式基础上，对长词再次切分，特定场合用的多
+
+#### 常用函数
+
+|            函数             |                    描述                     |
+| :-------------------------: | :-----------------------------------------: |
+|        jieba.lcut(s)        | 精确模式，返回一个列表类型的分词结果（例1） |
+| jieba.lcut(s, cut_all=True) |                   全模式                    |
+|  jieba.lcut_for_search(s)   |                  搜索引擎                   |
+|      jieba.add_word(w)      |             向分词词典增加新词w             |
+
+例1
+
+```python
+>>>jieba.lcut('中国是一个伟大的国家')
+['中国','是'，'一个','伟大','的','国家']
+```
+
+例2
+
+```python
+>>>jieba.lcut('中国是一个伟大的国家',cut_all=True)
+['中国','国是',''是'，'一个','伟大','的','国家']
+```
+
+例3
+
+```python
+>>>jieba.lcut_for_search('中华人民共和国是伟大的')
+['中华','华人','人民','共和','共和国','中华人民共和国','是','伟大','的']
+```
+
+#### 要点
+
+jieba.lcut(s)
+
+精确处理分词并返回列表
+
+### 实例 文本词频统计
+
+#### 问题分析
+
+需求
+
+一篇文章，出现了哪些词？哪些词出现得最多？
+
+#### 英文文本 Hamlet
+
+```python
+#CalHamletV1
+def getText():
+    #读取文本
+    txt = open('Hamlet.txt', 'r').read()
+    #小写处理
+    txt = txt.lower()
+    #替换特殊符号为空格
+    for ch in '|"#$%&()+_-,/\:;<=>?@[\\]^{}~':
+        txt = txt.replace(ch, ' ')
+    return txt
+
+hamletTxt = getText()
+words = hamletTxt.split()
+counts = {}
+#遍历所有单词并记录对应出现次数
+for word in words:
+    counts[word] = counts.get(word,0) + 1
+#列表的sort方法，对列表按照键值对的第2个元素从大到小排序
+items = list(counts.items())
+items.sort(key=lambda x:x[1], reverse=True)
+#前10个出现最多的单词和对应次数打印    
+for i in range(10):
+    word, count = items[i]
+    print('{0:<10}{1:>5}'.format(word, count))
+```
+
+比价复杂的是 items.sort 方法和 lambda函数 的使用，常用搭配，自学
+
+结果
+
+```python
+
+```
+
+#### 中文文本 《三国演义》人物出场统计
+
+##### 基础版
+
+```python
+#CalThreeKingdomsV1
+import jieba
+txt = open('threekindoms.txt', 'r', encoding='utf-8').read()
+words = jieba.lcut(txt)
+counts = {}
+for word in words:
+    if len(word) == 1:
+        continue
+    else :
+        counts[word] = counts.get(word,0) + 1
+items = list(counts.items())
+items.sort(key=lambda x:x[1], reverse=True)
+for i in range(15):
+    word, count = items[i]
+    print('{0:<10}{1:>5}'.format(word, count))
+```
+
+结果
+
+```
+
+```
+
+人物出场次数的目标有差距，需要调整
+
+词频统计基础上面向问题改造
+
+对一些具有相同意义的词关联上，不是人名的排除
+
+##### 升级版
+
+```python
+#CalThreeKingdomsV2
+import jieba
+#多次运行基础版，找到排除词加入
+excludes = {"将军","却说","荆州","二人","不可","不能","如此"}
+txt = open("threekingdoms.txt", "r", encoding='utf-8').read()
+words  = jieba.lcut(txt)
+counts = {}
+for word in words:
+    if len(word) == 1:
+        continue
+    elif word == "诸葛亮" or word == "孔明曰":
+        rword = "孔明"
+    elif word == "关公" or word == "云长":
+        rword = "关羽"
+    elif word == "玄德" or word == "玄德曰":
+        rword = "刘备"
+    elif word == "孟德" or word == "丞相":
+        rword = "曹操"
+    else:
+        rword = word
+    counts[rword] = counts.get(rword,0) + 1
+for word in excludes:
+    del counts[word]
+items = list(counts.items())
+items.sort(key=lambda x:x[1], reverse=True) 
+for i in range(10):
+    word, count = items[i]
+    print ("{0:<10}{1:>5}".format(word, count))
+```
+
+#### 举一反三
+
+对其他的文本进行词频分析，找到重点
+
+绘制词云
