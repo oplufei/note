@@ -2108,15 +2108,15 @@ def fact(n):
         return n*fact(n-1)
 ```
 
-##### 递归实例 字符串反转
+#### 递归实例 字符串反转
 
-###### 使用切片
+##### 使用切片
 
 ```python
 s[::-1]
 ```
 
-###### 使用递归
+##### 使用递归
 
 ```python
 def rvs(s):
@@ -2128,7 +2128,7 @@ def rvs(s):
         return rvs(s[1:]+s[0])
 ```
 
-##### 递归实例 斐波那契数列
+#### 递归实例 斐波那契数列
 
 $$
 F(n) = \begin{cases}
@@ -2146,37 +2146,49 @@ def f(n):
         return f(n-1)+f(n-2)
 ```
 
-##### 汉诺塔
+#### 汉诺塔
+
+##### 问题描述
 
 三根柱子，一根柱子从下往上按照大小顺序摞着64片黄金圆盘，把圆盘从下面开始按大小顺序重新摆放在另一根柱子上，按规定，小圆盘上不能放大圆盘，三根柱子之间一次只能移动一个圆盘
 
+##### 步骤
+
+1. 问题核心： n个圆盘从A搬到C
+2. 分解： 将上 n-1 个圆盘先搬到B，把最后一个圆盘搬到C，再把上 n-1 个圆盘搬到C
+3. 步骤2描述了一种递归关系
+   - 从形式上，只是将 n 的圆盘问题化成了 n-1的圆盘问题，没有提出 n-1 的方法
+   - 这种递归关系体现在程序的分支中，实际上，n-1 具体怎么操作不重要，也不关心，递归关系只关心当前 n 与 n-1 的关系，即递归链条
+   - 找到这种关系，剩下的交给程序自己完成
+   - 思路可以类比数学归纳法
+
+##### 代码
+
 ```python
-count = 0
-def hanoi(n, src, dst, mid):
-    global count
-    if n == 1:
-        print("{}:{}->{}".format(1,src,dst))
-        count += 1
+steps = 0
+def hanoi(n, src, mid, dst):	# 盘子数，源，中间，目标
+    global steps	# 每移动一次圆盘，计数加1
+    if n == 1:		# 搬动一个圆盘
+        steps += 1
+        print("[STEP{:>4}] {}->{}".format(steps,src,dst))
     else :
-        hanoi(n-1, src, mid, dst)
-        print("{}:{}->{}".format(n,src,dst))
-        count += 1
-        hanoi(n-1, mid, src, dst)
+        hanoi(n-1, src, dst, mid)	# 将前 n-1 个圆盘从源柱子搬到中间柱子，此时，中间柱子为当前移动的目标柱子
+        steps += 1
+        print("[STEP{:>4}] {}->{}".format(steps,src,dst))
+        hanoi(n-1, mid, src, dst)	# 将前 n-1 个柱子从中间柱子搬到目标柱子最后一个圆盘上，此时，中间柱子为当前移动的源柱子
 hanoi(3, "A", "B", "C")
-print(count)
 ```
 
 结果
 
 ```
-1:A->B
-2:A->C
-1:B->A
-3:A->B
-1:C->B
-2:C->A
-1:B->C
-7
+[STEP   1] A->C
+[STEP   2] A->B
+[STEP   3] C->B
+[STEP   4] A->C
+[STEP   5] B->A
+[STEP   6] B->C
+[STEP   7] A->C
 ```
 
 ## 程序的循环结构
