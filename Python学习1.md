@@ -3552,7 +3552,7 @@ print("运行时间是：{:.5f}s".format(perf_counter()-start))
 
 步骤2：获得一串数字，绘制对应的数码管
 
-步骤3：获得当前系统时间，绘制对应的数码管
+步骤3：获得当前系统时间，绘制对应的数码管time
 
 ```python
 import turtle, time
@@ -3562,7 +3562,7 @@ def drawGap():			# 美化，线条间加一定间隔
     
 def drawLine(draw):     # 绘制单段数码管
     drawGap()
-    turtle.pendown() if draw else turtle.penup()
+    turtle.pendown() if draw else turtle.penup()	# draw = True -> pendown
     turtle.fd(40)
     drawGap()
     turtle.right(90)
@@ -3622,6 +3622,8 @@ main()
 使用前需要额外安装
 
 官网： http://www.pyinstaller.org
+
+用来生成可执行文件
 
 ### 安装方法
 
@@ -3688,11 +3690,11 @@ pyinstaller -i bird3.ico -F PythonDraw.py
 ```python
 # KochDrawv1
 import turtle
-def koch(size, n):
+def koch(size, n):		# size 直线长度 n 阶数
     if n == 0:
         turtle.fd(size)
     else :
-        for angle in [0, 60, -120, 60]:
+        for angle in [0, 60, -120, 60]:	# 四个角度下绘制（n-1）阶
             turtle.left(angle)
             koch(size/3, n-1)
 def main():
