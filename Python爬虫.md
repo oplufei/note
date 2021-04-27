@@ -35,7 +35,7 @@ Response对象： 包含爬虫（服务器资源）返回的内容
 
 Request对象： 向服务器请求资源
 
-属性
+### 属性
 
 |        属性         |                       描述                       |
 | :-----------------: | :----------------------------------------------: |
@@ -45,7 +45,7 @@ Request对象： 向服务器请求资源
 | r.apparent_encoding | 从内容中分析出的响应内容编码方式（备选编码方式） |
 |      r.content      |             HTTP响应内容的二进制形式             |
 
-例子
+#### 例子
 
 ```python
 >>>import requests
@@ -71,5 +71,25 @@ r.encoding：从header（头部分）中的charset字段获得，表示服务器
 
 r.apparent_encoding： 根据网页内容分析出的编码方式，实实在在的分析内容了
 
-## 网页爬取的通用代码框架
+## 爬取网页的通用代码框架
 
+get() 获取网页不一定能实现，需要异常处理
+
+### Requests库的异常
+
+|           异常            |                    说明                     |
+| :-----------------------: | :-----------------------------------------: |
+| requests.ConnectionError  | 网络连接错误异常，如DNS查询失败、拒绝连接等 |
+|    requests.HTTPError     |                HTTP错误异常                 |
+|   requests.URLRequired    |                 URL缺失异常                 |
+| requests.TooManyRedirects |    重定向异常，超过最大重定向次数时产生     |
+|  requests.ConnectTimeout  |           连接远程服务器超时异常            |
+|     requests.Timeout      |         超时异常，请求URL超时时产生         |
+|                           |                                             |
+|                           |                                             |
+
+requests.ConnectTimeout： 仅指与远程服务器连接这个过程
+
+requests.Timeout： 发出URL请求到获得内容整个过程的
+
+理解Response对象很重要，Response返回了网页爬取的所有内容
