@@ -3,7 +3,7 @@
 
 
 1. 分析问题
-分析问题的计算部分——想清楚
+	分析问题的计算部分——想清楚
 								   ——使用编程能够解决问题的哪一个计算需求
 2. 划分边界
 划分问题的功能边界——规划IPO
@@ -2662,28 +2662,41 @@ f = open('f.txt', 'a+')	# 文本形式，追加写 + 读文件（程序能读信
 
 #### 常用读文件函数
 
-##### .read(size)
+##### <f>.read(size)
 
 读入全部内容，如果给出参数，读入前size长度
 
 ```python
 # f.txt 内容 中国是一个伟大的国家!
+>>>f = open('f.txt', 'rt')
 >>>s = f.read(2)
 >>>中国
 ```
 
-##### .readline(size)
+##### <f>.readline(size)
 
 读入一行内容，如果给出参数，读入该行前size长度
 
 ```python
+# f.txt 内容 中国是一个伟大的国家!
+>>>f = open('f.txt', 'rt')
 >>>s = f.readline()
 >>>中国是一个伟大的国家!
 ```
 
-##### .readlines(hint)
+##### <f>.readlines(hint)
 
 读入文件所有行，以每行为元素形成列表，如果给出参数，读入前hint行
+
+```python
+''' f.txt 内容
+中国是个伟大的国家！
+哈哈哈哈哈
+'''
+>>>f = open('f.txt', 'rt')
+>>>s = f.readlines()
+>>>['中国是个伟大的国家！\n', '哈哈哈哈哈']
+```
 
 ##### 实例 遍历全文本
 
@@ -2741,11 +2754,91 @@ fo.close()
 
 #### 常用写文件函数
 
-##### .write(s)
+##### <f>.write(s)
 
-##### .writelines(lines)
+向文件写入一个字符串或字节流
 
-##### .seek(offset)
+```python
+'''
+中国是个伟大的国家！
+哈哈哈哈哈中国法国美国中国法国美国
+'''
+>>> f = open ('C:\\Users\\Administrator\\Desktop\\f.txt', 'a+')
+>>> f.write('\n中国是一个伟大的国家！')
+12
+>>> s = f.read()
+>>> print(s)
+>>> f = open ('C:\\Users\\Administrator\\Desktop\\f.txt', 'r')
+>>> s = f.read()
+>>> print(s)
+中国是个伟大的国家！
+哈哈哈哈哈中国法国美国中国法国美国
+中国是一个伟大的国家！
+```
+
+##### <f>.writelines(lines)
+
+将一个元素全为字符串的列表写入文件
+
+```python
+'''
+中国是个伟大的国家！
+哈哈哈哈哈
+'''
+# a+ 模式打开后，写入成功，打印为 None
+>>> f = open ('C:\\Users\\Administrator\\Desktop\\f.txt', 'a+')
+>>> ls = ['中国', '法国', '美国']
+>>> s = f.writelines(ls)	# 原因 s 赋值为写入行
+>>> print(s)
+None
+
+# a+ 模式打开后，写入成功，f.readlines() 只能读取新输入部分
+>>> f = open ('C:\\Users\\Administrator\\Desktop\\f.txt', 'a+')
+>>> ls = ['中国', '法国', '美国']
+>>> f.writelines(ls)
+>>> s = f.readlines()	# s 赋值为读入行，只能打印新输入部分
+>>> print(s)
+['中国法国美国']
+
+# 测试 f.read() 和 f.readlines() 
+>>> s = f.read()
+>>> print(s)
+											# 空
+>>> s = f.readlines()
+>>> print(s)
+[]											# 空列表
+
+# a+ 模式打开后，未写入，f.read() 空
+>>> f = open ('C:\\Users\\Administrator\\Desktop\\f.txt', 'a+')
+>>> s = f.read()
+>>> print(s)
+
+# r 模式打开后， 未写入，f.read() 全部读取
+>>> f = open ('C:\\Users\\Administrator\\Desktop\\f.txt', 'r')
+>>> s = f.read()
+>>> print(s)
+中国是个伟大的国家！
+哈哈哈哈哈中国法国美国中国法国美国
+
+# a+ 模式打开后，写入成功，f.read() 读取结果空
+>>> f = open ('C:\\Users\\Administrator\\Desktop\\f.txt', 'a+')
+>>> ls = ['中国', '法国', '美国']
+>>> f.writelines(ls)
+>>> s = f.read()
+>>> print(s)
+
+>>> f = open ('C:\\Users\\Administrator\\Desktop\\f.txt', 'r')
+>>> s = f.read()
+>>> print(s)
+中国是个伟大的国家！
+哈哈哈哈哈中国法国美国中国法国美国中国法国美国
+>>> f = open ('C:\\Users\\Administrator\\Desktop\\f.txt', 'r')
+>>> s = f.readlines()
+>>> print(s)
+['中国是个伟大的国家！\n', '哈哈哈哈哈中国法国美国中国法国美国中国法国美国']
+```
+
+##### <f>.seek(offset)
 
 辅助函数
 
