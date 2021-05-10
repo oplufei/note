@@ -2858,9 +2858,15 @@ None
 
 作用理解：当文件打开进行信息读取或写入过程中，写第一个进去时，对文件操作来说，有一个指针指向当前写入后的文件位置，如果再写信息，会从当前位置继续向下写，直到文件关闭。在文件打开到文件关闭周期中，文件的操作指针随每一次的函数的调用的变化而变化，但是当函数调用之后，希望改变文件操作指针，就要使用 seek 方法。
 
-##### 实例 数据的文件写入
+### 关闭文件  .close()
 
-###### 初始代码
+程序正常退出，自动关闭，尽量加
+
+<变量名>.close()
+
+### 实例 数据的文件写入
+
+#### 初始代码
 
 执行后，输出为空（没有任何输出）
 
@@ -2875,7 +2881,7 @@ fo.close()
 
 原因：写过信息后， 指针在文末，指向下次可能写入信息的位置，此时调用 for in 遍历一行并打印输出，它指的是从当前位置向文件的结尾处取出其中的每一行并打印，而已经写过的信息在指针上方，无法打印。
 
-###### 调整代码
+#### 调整代码
 
 ```python
 fo = open('output.txt', 'w+')
@@ -2897,11 +2903,7 @@ fo.close()
 
 文件操作过程中，指针所在位置及其对程序的影响
 
-### 关闭文件  .close()
 
-程序正常退出，自动关闭，尽量加
-
-<变量名>.close()
 
 文件内容的读取
 
@@ -2914,6 +2916,113 @@ fo.close()
 ### 数据格式化
 
 将一组数据按照一定规格和式样进行规范：表示、存储、运算等
+
+## 一维数据的格式化和处理
+
+### 数据组织的维度
+
+维度： 一组数据的组织形式
+
+#### 一维数据
+
+由对等关系的有序或无序数据构成，采用线性方式组织
+
+对应列表、数组、集合等概念
+
+#### 二维数据
+
+由多个一维数据构成，是一维数据的组合形式
+
+表格是典型的二维数据
+
+#### 多维数据
+
+由一维或二维数据在新维度上扩展形成
+
+如不同年份的表格
+
+#### 高维数据
+
+仅利用最基本的二元关系展示数据间的复杂结构
+
+如字典数据类型（键值对）
+
+#### 数据的操作周期
+
+三个阶段
+
+##### 数据存储
+
+数据在磁盘中的存储状态，关心存储格式
+
+##### 数据表示
+
+程序表达数据的方式，关心数据类型，用什么样的数据类型表达什么样的数据
+
+##### 数据操作
+
+数据能够由程序中的数据类型很好的表达，借助这样的数据类型对数据进行操作，操作又有操作方式和算法的体现
+
+### 一维数据的表示
+
+如何用程序的理性来表达一维数据
+
+数据间有序——列表
+
+数据间无序——集合
+
+### 一维数据的存储
+
+#### 空格分隔
+
+1 2 3 4 5
+
+使用一个或多个空格分隔进行存储，不换行
+
+缺点：数据中不能存在空格
+
+#### 逗号分隔
+
+1,2,3,4,5
+
+使用英文半角逗号分隔进行存储，不换行
+
+缺点：数据中不能有英文逗号
+
+#### 其他方式
+
+1$2$3$4$5
+
+使用其他符号或者符号组合，建议用特殊符号
+
+缺点：需要根据数据特点定义，通用性较差
+
+### 一维数据的处理
+
+不是操作，操作与算法相关
+
+这里的处理： 一维数据的数据存储格式和一维数据的列表或者集合的表示方式之间的一种转换。即，如何将存储的一维数据读入程序表达为列表或者集合，或者如何将程序类型表示的据写入到文件中
+
+#### 实例
+
+从空格分隔的文件中读入数据，表示为列表
+
+```python
+# 中国 美国 日本 德国 法国 英国 意大利
+
+```
+
+从特殊符号分隔的文件中读入数据
+
+```python
+# 中国$美国$日本$德国$法国$英国$意大利
+```
+
+采用空格分隔方式将数据写入文件
+
+```python
+
+```
 
 
 
@@ -3906,79 +4015,6 @@ print("运行时间是：{:.5f}s".format(perf_counter()-start))
 2. 计算思维： 数学——计算
 2. 特定图形面积，可用蒙特卡罗方法，工程计算中常用
 
-# 综合实例——绘制七段数码管
-
-## 基本思路
-
-步骤1：绘制单个数字对应的数码管
-
-步骤2：获得一串数字，绘制对应的数码管
-
-步骤3：获得当前系统时间，绘制对应的数码管time
-
-```python
-import turtle, time
-def drawGap():			# 美化，线条间加一定间隔
-    turtle.penup()
-    turtle.fd(5)
-    
-def drawLine(draw):     # 绘制单段数码管
-    drawGap()
-    turtle.pendown() if draw else turtle.penup()	# draw = True -> pendown
-    turtle.fd(40)
-    drawGap()
-    turtle.right(90)
-    
-def drawDigit(digit):   # 根据数字绘制七段数码管
-    drawLine(True) if digit in [2,3,4,5,6,8,9] else drawLine(False)
-    drawLine(True) if digit in [0,1,3,4,5,6,7,8,9] else drawLine(False)
-    drawLine(True) if digit in [0,2,3,5,6,8,9] else drawLine(False)
-    drawLine(True) if digit in [0,2,6,8] else drawLine(False)
-    turtle.left(90)
-    drawLine(True) if digit in [0,4,5,6,8,9] else drawLine(False)
-    drawLine(True) if digit in [0,2,3,5,6,7,8,9] else drawLine(False)
-    drawLine(True) if digit in [0,1,2,3,4,7,8,9] else drawLine(False)
-    turtle.left(180)
-    turtle.penup()      # 为绘制后续数字确定位置
-    turtle.fd(20)       # 为绘制后续数字确定位置
-    
-def drawDate(date):     # 获取要输出的数字
-    turtle.pencolor("red")
-    for i in date:
-        if i == '-':
-            turtle.write("年",font=("Arial", 18, "normal"))
-            turtle.pencolor("green")
-            turtle.fd(40)
-        elif i == '=':
-            turtle.write("月",font=("Arial", 18, "normal"))
-        elif i == '+':
-            turtle.write("日",font=("Arial", 18, "normal"))
-        else:
-            drawDigit(eval(i))      # 通过eval()函数将数字变为整数
-            
-def main():             # 设置主函数main来设置初始值
-    turtle.setup(800, 350, 200, 200)
-    turtle.penup()
-    turtle.fd(-300)
-    turtle.pensize(5)
-    drawDate(time.strftime("%Y-%m=%d+", time.gmtime()))
-    turtle.hideturtle()
-    turtle.done()
-    
-main()
-```
-## 举一反三
-
-1. 理解方法思维
-模块化思维： 确定模块接口，封装功能
-规则化思维： 抽象过程为规则，计算机自动执行
-化繁为简： 将大功能变为小功能组合，分而治之
-
-1. 应用问题的扩展
-绘制带小数点的七段数码管
-带刷新的时间倒计时效果
-绘制高级的数码管
-
 # 第三方库-PyInstaller库
 
 使用前需要额外安装
@@ -4156,21 +4192,21 @@ pip install jieba
 |  jieba.lcut_for_search(s)   |                  搜索引擎                   |
 |      jieba.add_word(w)      |             向分词词典增加新词w             |
 
-例1
+#### 例1
 
 ```python
 >>>jieba.lcut('中国是一个伟大的国家')
 ['中国','是'，'一个','伟大','的','国家']
 ```
 
-例2
+#### 例2
 
 ```python
 >>>jieba.lcut('中国是一个伟大的国家',cut_all=True)
 ['中国','国是',''是'，'一个','伟大','的','国家']
 ```
 
-例3
+#### 例3
 
 ```python
 >>>jieba.lcut_for_search('中华人民共和国是伟大的')
@@ -4300,3 +4336,192 @@ for i in range(10):
 对其他的文本进行词频分析，找到重点
 
 绘制词云
+
+# 综合实例——绘制七段数码管
+
+## 基本思路
+
+步骤1：绘制单个数字对应的数码管
+
+步骤2：获得一串数字，绘制对应的数码管
+
+步骤3：获得当前系统时间，绘制对应的数码管time
+
+```python
+import turtle, time
+def drawGap():			# 美化，线条间加一定间隔
+    turtle.penup()
+    turtle.fd(5)
+    
+def drawLine(draw):     # 绘制单段数码管
+    drawGap()
+    turtle.pendown() if draw else turtle.penup()	# draw = True -> pendown
+    turtle.fd(40)
+    drawGap()
+    turtle.right(90)
+    
+def drawDigit(digit):   # 根据数字绘制七段数码管
+    drawLine(True) if digit in [2,3,4,5,6,8,9] else drawLine(False)
+    drawLine(True) if digit in [0,1,3,4,5,6,7,8,9] else drawLine(False)
+    drawLine(True) if digit in [0,2,3,5,6,8,9] else drawLine(False)
+    drawLine(True) if digit in [0,2,6,8] else drawLine(False)
+    turtle.left(90)
+    drawLine(True) if digit in [0,4,5,6,8,9] else drawLine(False)
+    drawLine(True) if digit in [0,2,3,5,6,7,8,9] else drawLine(False)
+    drawLine(True) if digit in [0,1,2,3,4,7,8,9] else drawLine(False)
+    turtle.left(180)
+    turtle.penup()      # 为绘制后续数字确定位置
+    turtle.fd(20)       # 为绘制后续数字确定位置
+    
+def drawDate(date):     # 获取要输出的数字
+    turtle.pencolor("red")
+    for i in date:
+        if i == '-':
+            turtle.write("年",font=("Arial", 18, "normal"))
+            turtle.pencolor("green")
+            turtle.fd(40)
+        elif i == '=':
+            turtle.write("月",font=("Arial", 18, "normal"))
+        elif i == '+':
+            turtle.write("日",font=("Arial", 18, "normal"))
+        else:
+            drawDigit(eval(i))      # 通过eval()函数将数字变为整数
+            
+def main():             # 设置主函数main来设置初始值
+    turtle.setup(800, 350, 200, 200)
+    turtle.penup()
+    turtle.fd(-300)
+    turtle.pensize(5)
+    drawDate(time.strftime("%Y-%m=%d+", time.gmtime()))
+    turtle.hideturtle()
+    turtle.done()
+    
+main()
+```
+
+## 举一反三
+
+1. 理解方法思维
+   模块化思维： 确定模块接口，封装功能
+   规则化思维： 抽象过程为规则，计算机自动执行
+   化繁为简： 将大功能变为小功能组合，分而治之
+1. 应用问题的扩展
+   绘制带小数点的七段数码管
+   带刷新的时间倒计时效果
+   绘制高级的数码管
+
+# 综合实例——自动轨迹绘制
+
+## 问题分析
+
+需求：根据脚本来绘制图形
+
+不是写代码而是写数据绘制轨迹，即能否写程序去读取数据，并根据数据来绘制轨迹
+
+数据脚本是自动化最重要的第一步
+
+设计脚本或者数据接口是程序自动化、模块化的重要过程
+
+整个需求：给出一个文件，文件中列出数据参数，经过程序加载和运行，自动绘制出期望的轨迹图形
+
+技术实现：读取文件、解析其中数据、绘制图形
+
+## 基本思路
+
+### 定义数据文件格式（接口）
+
+接口： 程序和数据之间的一种规范
+
+数据接口定义没有规范，个性色彩浓厚
+
+课程定义如下：
+
+行进距离，转向判断，转向角度，RGB三个通道颜色
+
+## 编写程序
+
+根据文件接口解析参数绘制图形
+
+使用海龟绘图体系
+
+### 代码实现
+
+```python
+import turtle as t
+
+# 第一步——基础准备——生成绘画环境，赋予初值
+t.title('自动轨迹绘制')
+t.setup(800, 600, 0, 0)
+t.pencolor('red')
+t.pensize(5)
+
+# 第二步——获得绘制参数
+# 打开数据文件，解析数据文件每一行信息，对这一行信息处理
+# 预算绘制数据不大，所有数据信息读入后，保存为列表
+datals = []
+f = open('data.txt')
+# 遍历每一行
+for line in f:
+    # 换行符转换为空字符串，此时 line 存储我们定义的每一行的数据接口的值，需要将数据接口的值分割、处理、提取
+    line = line.replace('\n','')
+    # 使用 list map 等函数方法处理
+    # 读取后，line 存储的是字符串，需要处理成数字    
+    datals.append(list(map(eval, line.split(','))))
+	# 用‘，’分割数据——line.split(',')——生成列表，每个元素由‘，’分割的字符串
+    # 去引号——eval()——列表中的字符串转换为数字
+    # 形成新列表——list()
+    # 新列表放入目标列表——datals.append()
+f.close()
+# 实现第二步：接口文件信息读入内部列表变量
+
+# 第三步——绘图
+# 根据第二步列表信息绘制图形
+for i in range(len(datals)):
+    t.pencolor(datals[i][3], datals[i][4], datals[i][5])
+    t.fd(datals[i][0])
+    if datals[i][1]:
+        t.right(datals[i][2])
+    else:
+        t.left(datals[i][2])
+```
+
+#### map 函数 
+
+内嵌函数
+
+##### 作用
+
+将第一个参数的功能，作用于第二个参数的每个元素，可实现对一个列表或一个集合这样的组合数据类型中的每一个元素，都执行一次第一个参数对应的函数
+
+## 编制数据文件
+
+根据接口，编写 data.txt 文件
+
+## 举一反三
+
+### 理解方法思维
+
+#### 自动化思维
+
+将数据和功能分离，很多程序既有数据也有功能，比如绘图，是一种功能，如何指导绘图的进行，需要数据。数据驱动，是自动运行重要的原理方法
+
+#### 接口化设计
+
+格式化设计接口，清晰明了
+
+如何设计一个格式文件，使它跟程序的交互变得很容易。
+
+本例子选择‘，’分隔的数字做接口的格式化设计
+
+#### 二维数据应用
+
+应用维度组织数据，二维数据最常用
+
+### 应用问题的扩展
+
+扩展接口设计，增加更多控制接口
+
+扩展功能设计，增加弧形等更多功能
+
+扩展应用需求，发展自动轨迹绘制到动画绘制
+
