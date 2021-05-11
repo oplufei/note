@@ -2921,7 +2921,7 @@ fo.close()
 
 ### 数据组织的维度
 
-维度： 一组数据的组织形式
+维度：数据的组织形式
 
 #### 一维数据
 
@@ -3005,25 +3005,138 @@ fo.close()
 
 #### 实例
 
-从空格分隔的文件中读入数据，表示为列表
+##### 从空格分隔的文件中读入数据，表示为列表
 
 ```python
 # 中国 美国 日本 德国 法国 英国 意大利
-
+txt = open(fname).read()
+ls = txt.split()	# 根据空格分隔字符串信息
+# f.close()
+# 报错：NameError: name 'f' is not defined
+print(ls)
 ```
 
-从特殊符号分隔的文件中读入数据
+结果
+
+```
+['中国', '美国', '日本', '德国', '法国', '英国', '意大利']
+```
+
+##### 从特殊符号分隔的文件中读入数据
 
 ```python
 # 中国$美国$日本$德国$法国$英国$意大利
+txt = open(fname).read()
+ls = txt.split('$')
+print(ls)
 ```
 
-采用空格分隔方式将数据写入文件
+结果
+
+```
+['中国', '美国', '日本', '德国', '法国', '英国', '意大利']
+```
+
+##### 采用空格分隔方式将数据写入文件
 
 ```python
-
+ls = ['中国', '美国', '日本']
+f = open(fname, 'w')
+f.write(' '.join(ls))
+f.close()
 ```
 
+结果
+
+```
+文本显示：中国 美国 日本
+```
+
+## 二维数据的格式化和处理
+
+### 二维数据的表示
+
+使用什么样的数据类型来表达二维数据？
+
+使用列表类型（二维列表）
+
+本身是一个列表，每个元素也是列表
+
+基础部分使用二维列表，数据分析或大数据处理会使用更高级、有效的结构
+
+使用两层for循环遍历每个元素
+
+外层列表中每个元素可以对应一行，也可以对应一列
+
+### CSV数据存储格式
+
+CSV： Comma-Separated Values
+
+由逗号分隔的值
+
+国际通用的一二维数据存储格式，一般 .csv 扩展名
+
+每行一个一维数据，采用逗号分隔，无空行
+
+Excel和一般编辑软件都可以读入或另存为 csv 文件
+
+CSV格式是数据转换之间的通用标准格式
+
+如果某个元素缺失，逗号要保留
+
+二维数据的表头可以作为数据存储，也可以另行存储
+
+逗号为英文半角逗号，逗号与数据之间无额外空格
+
+如果数据本身有英文半角逗号，不同的csv软件之间有一个约定， 在该数据两侧增加引号，表达这个逗号不是分割元素的逗号，或者对数据中出现的逗号增加转义符
+
+### 二维数据的存储
+
+关心二维数据的每一行、每一列到底该怎么存
+
+按行存或者按列存都可以，具体由程序决定
+
+一般索引习惯： 先行后列 
+
+```python
+ls[row][column]
+```
+
+根据一般习惯，外层列表每个元素是一行，按行存
+
+### 二维数据的处理
+
+从CSV格式的文件中读入数据
+
+```python
+fo = open(fname)
+ls = []
+for line in fo:
+    line = line.replace('\n', '')
+    ls.append(line.split(','))
+fo.close()
+```
+
+将数据写入CSV格式文件
+
+```python
+ls = [[], [], []]
+f = open(fname, 'w')
+for item in ls:
+    f.write(','.join(item) + '\n')
+f.close()
+```
+
+逐一遍历二维数据元素
+
+采用二层循环
+
+```python
+ls = [[1,2], [3,4], [5,6]]
+for row in ls:
+    for column in row:
+        print(column)
+```
 
 
 
@@ -4336,6 +4449,196 @@ for i in range(10):
 对其他的文本进行词频分析，找到重点
 
 绘制词云
+
+# 第三方库——wordcloud库
+
+词云展示第三方库
+
+词云： 将词语通过图形可视化的方式直观和艺术的展示出来
+
+## 基本使用
+
+wordcloud库把词云当作一个WordCloud对象
+
+wordcloud.WordCloud() 代表一个文本对应的词云
+
+可以根据文本中词语出现的频率等参数绘制词云
+
+绘制词云的形尺寸和颜色都可以设定
+
+## 常规方法
+
+w = wordcloud.WordCloud()
+
+用wordcloud库中的WordCloud对象来表明一个词云，是一个词云的对象基础，可以把WordCloud看做是一个程序版的词云
+
+生成一个对象，赋予变量w
+
+可以向这个对象（WordCloud）中配置参数、加载文本，并且将这样一个程序对应的词云输出到文件中
+
+### w.generate(txt)
+
+向 WordCloud 对象 w 中加载文本 txt
+
+### w.to_file(filename)
+
+将词云输出为图像文件， .png 或 .jpg 格式
+
+### 词云绘制的步骤
+
+生成词云对象配置参数
+
+加载词云文本
+
+输出词云文本
+
+#### 实例
+
+```python
+import wordcloud
+c = wordcloud.WordCloud()
+c.generate('wordcloud by Python')
+c.to_file('pywordcloud.png')
+```
+
+结果
+
+```
+生成一个长400像素*宽200像素的图片
+图片内容：wordcloud Python
+by 被过滤
+底色为黑色，wordcloud、Python为不同颜色
+```
+
+从文本到词云，wordcloud库操作内容：
+
+1. 分隔： 以空格为符号将文本分隔为单词
+2. 统计： 单词出现次数并过滤
+3. 字体： 根据统计配置字号
+4. 布局： 颜色环境尺寸
+
+只要给出一个由空格分隔的大字符串，wordcloud库可以自动生成词云
+
+### 配置对象参数
+
+w = wordcloud.WordCloud(<参数>)
+
+#### width
+
+指定词云对象生成图片的宽度，默认400像素
+
+#### height
+
+指定词云对象生成图片的宽度，默认200像素
+
+#### min_font_size
+
+指定词云中字体的最小字号，默认4号
+
+#### max_font_size
+
+指定词云中字体的最大字号，根据高度自动调节
+
+#### font_step
+
+指定词云中字体字号的步进间隔，默认为1
+
+步进间隔： 从最小字号到最大字号的递增量
+
+#### font_path
+
+指定字体文件的路径，默认None，即指定字体
+
+#### max_words
+
+指定词云显示的最大单词数量，默认200
+
+#### stop_words
+
+指定词云的排除词列表，即不显示的单词列表
+
+一般可以通过给定一个集合类型，赋给 stop_word 这个参数，用来排除在集合中出现的单词内容
+
+#### mask
+
+指定词云形状，默认为长方形，需要引用 imread() 函数
+
+有一套标准模式
+
+1. 使用 from scipy.misc import imread
+
+2. 用 imread 去读取一个图片效果，想显示什么形状，就要赋给图片参数，读取后，用变量 mk 表达
+
+   mk = imread('pic.png')
+
+3. 将 mk 赋给 wordcloud 的参数
+
+   w = wordcloud.WordCloud(mask=mk)
+
+#### backgound_color
+
+指定词云图片的背景颜色，默认为黑色
+
+#### 实例
+
+将一段英文文本变为词云
+
+```python
+import wordcloud
+txt = 'life is short, you need python'
+w = wordcloud.WordCloud( \
+    background_color = 'white')
+w.generate(txt)
+w.to_file('1.png')
+```
+
+将一段中文文本变为词云
+
+```python
+# 首先需要对中文分词
+import jieba
+import wordcloud
+txt = '程序设计语言是计算机能够理解和\
+识别用户操作意图的一种交互体系，它按照\
+特定规则组织计算机指令，使计算机能够自\
+动进行各种运算处理。'
+w = wordcloud.WordCloud(  width=1000,\
+	font_path='msyh.ttc', height=700)
+# 加载一段由空格区分的中文文本
+w.generate(' '.join(jieba.lcut(txt)))
+# 首先， jieba.lcut(txt) 分词，生成列表变量，每个元素是分隔后的单词
+# 确定分词后单词的组织形式——用空格分隔——' '.join
+w.to_file('2.png')
+```
+
+## 实例 政府工作报告词云
+
+直观理解政策文件
+
+需求： 对政府工作报告等政策文件直观理解
+
+第一步： 读取文件、分词整理
+
+第二步： 设置并输出词云
+
+第三步： 观察结果，优化迭代
+
+```python
+import jieba
+import wordcloud
+f = open('https://python123.io/resources/pye/%E6%96%B0%E6%97%B6%E4%BB%A3%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89.txt', 'r', encoding = 'utf-8')
+t = f.read()
+f.close()
+ls = jieba.lcut(t)
+txt = ' '.join(ls)
+w = wordcloud.WordCloud()
+w.generate(txt)
+w.to_file('3.png')
+```
+
+20210511 1131 问题
+
+保存到txt文件后，出来的是方框框，不是文字，解析错误
 
 # 综合实例——绘制七段数码管
 
