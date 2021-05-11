@@ -4563,9 +4563,17 @@ w = wordcloud.WordCloud(<参数>)
 
 指定词云形状，默认为长方形，需要引用 imread() 函数
 
+通过覆盖的方法生成其他形状
+
 有一套标准模式
 
 1. 使用 from scipy.misc import imread
+
+   SciPy (pronounced "Sigh Pie") 是一个开源的数学、科学和工程计算包
+
+   misc： miscellaneous，杂项
+
+   imread：读取一个图片文件，并且变成一个图片文件表达的内部变量
 
 2. 用 imread 去读取一个图片效果，想显示什么形状，就要赋给图片参数，读取后，用变量 mk 表达
 
@@ -4623,6 +4631,8 @@ w.to_file('2.png')
 
 第三步： 观察结果，优化迭代
 
+### 代码实现
+
 ```python
 import jieba
 import wordcloud
@@ -4630,8 +4640,8 @@ f = open('https://python123.io/resources/pye/%E6%96%B0%E6%97%B6%E4%BB%A3%E4%B8%A
 t = f.read()
 f.close()
 ls = jieba.lcut(t)
-txt = ' '.join(ls)
-w = wordcloud.WordCloud()
+txt = list(' '.join(ls))
+w = wordcloud.WordCloud(background_color = 'white', max_words = 15, font_path = 'msyh.ttf')
 w.generate(txt)
 w.to_file('3.png')
 ```
@@ -4639,6 +4649,39 @@ w.to_file('3.png')
 20210511 1131 问题
 
 保存到txt文件后，出来的是方框框，不是文字，解析错误
+
+原因：wordcloud的默认字体不支持中文，我们需要设置一个中文格式的路径，通过设置字体的参数font_path来设置路径
+
+修改： 增加参数 font_path = 'msyh.ttf'
+
+### 更改形状
+
+三处修订
+
+引入 imread，读取图片，保存为一个变量，将变量赋给wordcloud对象的mask参数
+
+```python
+import jieba
+import wordcloud
+from scipy.misc import imread
+mask = imread('fivestar.jpg')
+f = open('1.txt', 'r', encoding = 'utf-8')
+t = f.read()
+f.close()
+ls = jieba.lcut(t)
+txt = ' '.join(ls)
+w = wordcloud.WordCloud(background_color = 'white', max_words = 15, font_path = 'msyh.ttf')
+w.generate(txt)
+w.to_file('3.png')
+```
+
+## 举一反三
+
+了解wordcloud更多参数，扩展词云能力
+
+特色词云： 设计一款属于自己的特色词云风格
+
+更多文件： 用更多文件练习词云生成
 
 # 综合实例——绘制七段数码管
 
@@ -4828,3 +4871,92 @@ for i in range(len(datals)):
 
 扩展应用需求，发展自动轨迹绘制到动画绘制
 
+# 程序设计方法学
+
+方法论上： 理解并掌握一批Python程序设计思维
+
+实践能力上： 学会编写更有设计感的程序
+
+## 实例 体育竞技分析
+
+理解： 自顶向下的设计，自底向上的执行（两者结合形成有效的通路组合）
+
+### 问题分析
+
+需求：俗话说，高手过招，胜负只在毫厘之间，毫厘是多少？如何用科学的方法分析不同水平的球员竞技比赛的结果？
+
+输入——球员的水平——输出——可预测的比赛成绩
+
+即根据球员的不同能力值模拟N场比赛，并分析获胜次数
+
+使用计算思维： 抽象 + 自动化
+
+模拟： 抽象比赛过程 + 自动化执行N场比赛
+
+当N越大，不同队员的能力差值在比赛结果的显示中会变得收敛，这种收敛性或者说稳定性，给体育竞技带来可度量、可评价、可使用的结果，使得比赛结果分析更科学
+
+抽象比赛规则
+
+双人击球比赛： A & B，回合制，5局3胜
+
+开始时一方先发球，直至判分，接下来胜者发球
+
+球员只能在发球局得分，15分胜一局
+
+### 自顶向下
+
+解决复杂问题的有效方法
+
+1. 将一个总问题表达为若干个小问题组成的形式
+2. 使用同样的方法进一步分解小问题
+3. 直至，小问题可以用计算机简单明了地解决
+
+即将一个复杂的大问题，通过几层次的分解，变成若干个非常明确可以解决的小问题及小问题之间的关系
+
+### 自底向上
+
+逐步组建复杂系统，并且能够进行有效测试的方法
+
+1. 分单元测试，逐步组装
+2. 按照自顶向下相反的路径操作
+3. 直至，系统各部分以组装的思路都经过测试和验证
+
+解释：对一个软件系统，其中的每一个实践单元可以进行分单元测试，并且将测试好的单元进行组合，再进行测试，再组合再测试，逐步形成复杂系统，按照自顶向下的相反路径操作，直到系统的各部分以组装的思想，经过测试和验证，变成系统有效部分的结果
+
+### 分析
+
+程序总体框架及步骤
+
+1. 打印程序的介绍性信息
+
+   让用户知道程序的作用
+
+2. 获得程序运行参数：proA，proB，n
+
+   从用户那里获得球员A、B的能力值和模拟比赛场次数量
+
+3. 利用球员A、B能力值，模拟n局比赛
+
+   由计算机进行比赛模拟
+
+4. 输出球员获胜比赛的场次及概率
+
+由步骤定义4个函数
+
+1.—— printInfo()
+
+2.——getInputs()
+
+3.——simNGames()
+
+4.——printSummary()
+
+
+
+Python程序设计思维
+
+Python第三方库安装
+
+os库
+
+自动安装脚本
