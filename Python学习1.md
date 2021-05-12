@@ -4923,13 +4923,11 @@ for i in range(len(datals)):
 
 解释：对一个软件系统，其中的每一个实践单元可以进行分单元测试，并且将测试好的单元进行组合，再进行测试，再组合再测试，逐步形成复杂系统，按照自顶向下的相反路径操作，直到系统的各部分以组装的思想，经过测试和验证，变成系统有效部分的结果
 
-### 分析
-
-程序总体框架及步骤
+### 程序总体框架及步骤
 
 1. 打印程序的介绍性信息
 
-   让用户知道程序的作用
+   让用户知道程序的作用，提高用户体验
 
 2. 获得程序运行参数：proA，proB，n
 
@@ -4950,6 +4948,94 @@ for i in range(len(datals)):
 3.——simNGames()
 
 4.——printSummary()
+
+### 代码分析
+
+#### 第一阶段
+
+把体育竞技分析看做 main()
+
+包含四个部分
+
+```python
+def main():
+    printIntro()
+    probA, probB, n = getInputs()
+    winsA, winsB = simNGames(n, probA, probB)
+    printSummary()
+```
+
+做了比较初级的模块化分解
+
+对每个模块细化分析，看能否简单实现
+
+```python
+def printIntro():
+    print('这个程序模拟两个选手A和B的某种竞技比赛')
+    print('程序运行需要A和B的能力值（以0到1之间的小数表示）')
+    
+# 比较简单，易于实现
+```
+
+```python
+def getInputs():
+    a = eval(input('请输入选手A的能力值（0-1）：'))
+    b = eval(input('请输入选手B的能力值（0-1）：'))
+    n = eval(input('模拟比赛的场次：'))
+    return a, b, n
+
+# 比较简单，易于实现，返回元组类型
+```
+
+```python
+def printSummary(winsA, winsB):
+    n = winsA + winsB
+    print('竞技分析开始，共模拟{}场比赛'.format(n))
+    print('选手A获胜{}场比赛，占比{:0.1%}'.format(winsA, winsA/n))
+    print('选手B获胜{}场比赛，占比{:0.1%}'.format(winsB, winsB/n))
+    
+# 比较简单，易于实现
+```
+
+细化分析后，较为复杂的第三部分进一步处理
+
+#### 第二阶段
+
+模拟N局比赛 = n次模拟一局比赛 = 模拟一局并循环n次
+
+-> simOneGame() -> 获得选手分数值并返回比赛结果各选手获得的分支
+
+```python
+def simNGames(n, probA, probB):
+    winsA, winsB = 0, 0
+    for i in range (n):
+        scoreA, scoreB = simOneGame(probA, probB)
+        if scoreA > scoreB:
+            winsA += 1
+        else:
+            winsB += 1
+    return winsA, winsB
+```
+
+经过第二阶段的分解，整个问题变成一个问题： 模拟一局比赛怎么实现
+
+该问题，根据规则细化，分析可能的功能模块
+
+#### 第三阶段
+
+ 一局比赛一方先获得15分就结束。所以每次比较A、B的时候，分数超过一个特定值，就能判断比赛结果。判断比赛结束可以看成是一个新的模块。
+
+-> gameOver()
+
+```python
+
+```
+
+
+
+#### 
+
+
 
 
 
