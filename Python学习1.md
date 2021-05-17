@@ -1234,7 +1234,7 @@ def dev(numbers, mean):
 
 ```python
 def median(numbers):
-    sorted(numbers)		#排序函数
+    numbers = sorted(numbers)		#排序函数
     size = len(numbers)
     if size % 2 == 0:
         med = (numbers[size//2-1] + numbers[size//2])/2		#偶数，取中间两个平均值
@@ -4480,7 +4480,7 @@ def getText():
     #小写处理
     txt = txt.lower()
     #替换特殊符号为空格
-    for ch in '|"#$%&()+_-,/\:;<=>?@[\\]^{}~':
+    for ch in '!"#$%&()*+,-./:;<=>?@[\\]^_‘{|}~':
         txt = txt.replace(ch, ' ')
     return txt
 
@@ -4499,13 +4499,22 @@ for i in range(10):
     print('{0:<10}{1:>5}'.format(word, count))
 ```
 
-比较复杂的是 items.sort 方法和 lambda函数 的使用，常用搭配，自学
-
 结果
 
 ```python
-
+the        1138
+and         965
+to          751
+of          667
+a           541
+i           533
+you         522
+my          514
+hamlet      444
+in          428
 ```
+
+比较复杂的是 items.sort 方法和 lambda函数 的使用，常用搭配，自学
 
 ### 中文文本 《三国演义》人物出场统计
 
@@ -4783,6 +4792,8 @@ w.to_file('3.png')
 原因：wordcloud的默认字体不支持中文，我们需要设置一个中文格式的路径，通过设置字体的参数font_path来设置路径
 
 修改： 增加参数 font_path = 'msyh.ttf'
+
+https://blog.csdn.net/ll_master/article/details/81560074
 
 ### 更改形状
 
@@ -5067,6 +5078,182 @@ except:
 扩展应用： 安装更多第三方库，增加配置文件
 
 扩展异常检测： 捕获更多异常类型，给出更多提示信息，程序更稳定友好
+
+# 综合实例——霍兰德人格分析雷达图
+
+## 问题分析
+
+霍兰德认为： 人格兴趣与职业之间应有一种内在的对应关系
+
+人格分类： 研究型、艺术型、社会型、企业型、传统型、现实型
+
+职业： 工程师、实验员、艺术家、推销员、记事员、社会工作者
+
+需求： 用雷达图方式验证霍兰德人格分析
+
+输入： 各职业人群结合兴趣的调研数据
+
+输出： 雷达图（与六类对比）
+
+功能： 通用雷达图绘制 matplotlib 库、展示多维数据 NumPy 库
+
+## 实例展示
+
+```python
+#HollandRadarDraw
+#准备阶段
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+#建立数组，使用 numpy.array
+matplotlib.rcParams['font.family']='SimHei'
+radar_labels = np.array(['研究型(I)','艺术型(A)','社会型(S)',\
+                         '企业型(E)','常规型(C)','现实型(R)']) #雷达标签
+nAttr = 6
+data = np.array([[0.40, 0.32, 0.35, 0.30, 0.30, 0.88],
+                 [0.85, 0.35, 0.30, 0.40, 0.40, 0.30],
+                 [0.43, 0.89, 0.30, 0.28, 0.22, 0.30],
+                 [0.30, 0.25, 0.48, 0.85, 0.45, 0.40],
+                 [0.20, 0.38, 0.87, 0.45, 0.32, 0.28],
+                 [0.34, 0.31, 0.38, 0.40, 0.92, 0.28]]) #数据值
+data_labels = ('艺术家', '实验员', '工程师', '推销员', '社会工作者','记事员')
+
+#绘制雷达图，使用 matplotlib.pyplot 一系列方法
+angles = np.linspace(0, 2*np.pi, nAttr, endpoint=False)
+data = np.concatenate((data, [data[0]]))
+angles = np.concatenate((angles, [angles[0]]))
+fig = plt.figure(facecolor="white")
+plt.subplot(111, polar=True)
+plt.plot(angles,data,'o-', linewidth=1, alpha=0.2)
+plt.fill(angles,data, alpha=0.25)
+plt.thetagrids(angles*180/np.pi, radar_labels,frac = 1.2)
+
+#输出形成相关文件
+plt.figtext(0.52, 0.95, '霍兰德人格分析', ha='center', size=20)
+legend = plt.legend(data_labels, loc=(0.94, 0.80), labelspacing=0.1)
+plt.setp(legend.get_texts(), fontsize='large')
+plt.grid(True)
+plt.savefig('holland_radar.jpg')
+plt.show()
+```
+
+## 举一反三
+
+目标 + 沉浸 + 熟练
+
+编程的目标感： 寻找感兴趣的目标，寻（wa）觅（jue）之
+
+编程的沉浸感： 寻找可实现的方法，思（zhuo）考（mo）之
+
+编程的熟练度： 练习、练习、再练习，熟练之
+
+# 综合实例——玫瑰花绘制
+
+## 代码实现
+
+```python
+#RoseDraw.py
+import turtle as t
+# 定义一个曲线绘制函数
+def DegreeCurve(n, r, d=1):
+    for i in range(n):
+        t.left(d)
+        t.circle(r, abs(d))
+# 初始位置设定
+s = 0.2 # size
+t.setup(450*5*s, 750*5*s)
+t.pencolor("black")
+t.fillcolor("red")
+t.speed(100)
+t.penup()
+t.goto(0, 900*s)
+t.pendown()
+# 绘制花朵形状
+t.begin_fill()
+t.circle(200*s,30)
+DegreeCurve(60, 50*s)
+t.circle(200*s,30)
+DegreeCurve(4, 100*s)
+t.circle(200*s,50)
+DegreeCurve(50, 50*s)
+t.circle(350*s,65)
+DegreeCurve(40, 70*s)
+t.circle(150*s,50)
+DegreeCurve(20, 50*s, -1)
+t.circle(400*s,60)
+DegreeCurve(18, 50*s)
+t.fd(250*s)
+t.right(150)
+t.circle(-500*s,12)
+t.left(140)
+t.circle(550*s,110)
+t.left(27)
+t.circle(650*s,100)
+t.left(130)
+t.circle(-300*s,20)
+t.right(123)
+t.circle(220*s,57)
+t.end_fill()
+# 绘制花枝形状
+t.left(120)
+t.fd(280*s)
+t.left(115)
+t.circle(300*s,33)
+t.left(180)
+t.circle(-300*s,33)
+DegreeCurve(70, 225*s, -1)
+t.circle(350*s,104)
+t.left(90)
+t.circle(200*s,105)
+t.circle(-500*s,63)
+t.penup()
+t.goto(170*s,-30*s)
+t.pendown()
+t.left(160)
+DegreeCurve(20, 2500*s)
+DegreeCurve(220, 250*s, -1)
+# 绘制一个绿色叶子
+t.fillcolor('green')
+t.penup()
+t.goto(670*s,-180*s)
+t.pendown()
+t.right(140)
+t.begin_fill()
+t.circle(300*s,120)
+t.left(60)
+t.circle(300*s,120)
+t.end_fill()
+t.penup()
+t.goto(180*s,-550*s)
+t.pendown()
+t.right(85)
+t.circle(600*s,40)
+# 绘制另一个绿色叶子
+t.penup()
+t.goto(-150*s,-1000*s)
+t.pendown()
+t.begin_fill()
+t.rt(120)
+t.circle(300*s,115)
+t.left(75)
+t.circle(300*s,100)
+t.end_fill()
+t.penup()
+t.goto(430*s,-1070*s)
+t.pendown()
+t.right(30)
+t.circle(-600*s,35)
+t.done()
+```
+
+## 举一反三
+
+艺术之于编程，设计之于编程
+
+艺术： 思想优先，编程时手段
+
+设计： 想法和编程同等重要
 
 # 程序设计方法学
 
@@ -5468,13 +5655,13 @@ UCI页面： http://www.lfd.uci.edu/~gohlke/pythonlibs/
 
 ## 学习目标
 
-方法论
+### 方法论
 
 纵览Python计算生态，看见更大世界
 
-实践能力
+### 实践能力
 
-初步编写带有计算生态的复杂程序
+初步编写带有计算生态（利用第三方库）的复杂程序
 
 ## 从数据处理到人工智能
 
@@ -5506,6 +5693,121 @@ UCI页面： http://www.lfd.uci.edu/~gohlke/pythonlibs/
 
 链条下，每个板块都有大量 Python 第三方库
 
+#### 老师推荐第三方库
 
+##### 数据分析
 
-从Web
+Numpy、Pandas、SciPy
+
+##### 可视化
+
+Matplotlib、Seaborn、Mayavi
+
+##### 文本处理
+
+PyPDF2、NLTK、python-docx
+
+##### 机器学习
+
+Scikit-learn、TensorFlow、MXNet
+
+## 从Web解析到网络空间
+
+### 网络爬虫
+
+request
+
+Scrapy
+
+框架： 可以理解为功能的半成品，基础功能已经完成，只需要用户扩展开发或额外配置，就可以实现用户功能
+
+Pyspider
+
+### Web信息提取
+
+Beautiful Soup
+
+Re（标准库）
+
+Python-Goose
+
+提取文章类型，针对特定类型的Web页面，应用覆盖面广
+
+### Web网站开发
+
+Django（复杂）
+
+Pyramid（中）
+
+Flask（小）
+
+### 网络应用开发
+
+WeRoBot
+
+aip
+
+百度AI开放平台接口
+
+MyQR
+
+二维码生成
+
+## 从人机交互到艺术设计
+
+### 图形用户界面（GUI）
+
+PyQT5
+
+成熟的跨平台桌面应用开发系统，完备GUI，成熟的工业链条
+
+wxPython
+
+跨平台 Python GUI
+
+PyGObject
+
+使用GTK+ 开发GUI
+
+### 游戏开发
+
+PyGame
+
+简单的入门
+
+Panda3D
+
+开源、跨平台3D渲染和游戏开发
+
+cocos2d
+
+构建2D游戏和图形界面交互式应用框架
+
+### 虚拟现实
+
+VR Zero
+
+在树莓派上开发VR应用
+
+树莓派： Raspberry Pi，简写为RPi（RasPi、RPI），为学习计算机编程教育而设计，只有信用卡大小的微型电脑，其系统给予Linux，随着Windows 10 IoT 的发布，Windows也可以运行了
+
+pyovr
+
+针对Oculus Rift的
+
+Vizard
+
+给予Python的通用VR开发引擎
+
+### 图形艺术
+
+Quads
+
+迭代艺术
+
+ascii_art
+
+ASCII码艺术风格
+
+turtle
+
