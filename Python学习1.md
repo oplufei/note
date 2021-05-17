@@ -4209,15 +4209,54 @@ create，创建，返回 path 对应文件或目录的创建时间
 
 启动系统中其他程序
 
-os.system(command)
+### os.system(command)
+
+执行程序或命令 command
+
+在 Windows 系统中，返回值为 cmd 调用的返回信息
+
+```python
+# 调用 Windows 下面的计算机程序
+import os
+os.system('C:\\Windows\\system32\\calc.exe')
+```
+
+附参数 command + ' '(空格) + 参数
+
+```python
+# 调用画图打开1.png
+import os
+os.system('C:\\Windows\\system32\\mspaint.exe \
+C:\\Users\\Administrator\\Desktop\\捕获.png')
+```
+
+要执行的命令以字符串形式当做参数输入即可
 
 ## 环境参数
 
-获得系统软硬件信息等环境参数
+获得或改变系统软硬件信息等环境参数，用于辅助某些程序的运行
 
+### os.chdir(path)
 
+change，修改当前程序操作的路径
 
+### os.getcwd()
 
+返回程序的当前路径
+
+### os.getlogin()
+
+获得当前系统登录用户名称
+
+### os.cpu_count()
+
+获得当前系统的CPU数量
+
+### os.urandom(n)
+
+获得 n 个字节长度的随机字符串，通常用于与操作系统相关的加解密运算
+
+因为有些字符串不能被有效打印，所以用的是16进制
 
 # 第三方库-PyInstaller库
 
@@ -4962,6 +5001,73 @@ for i in range(len(datals)):
 
 扩展应用需求，发展自动轨迹绘制到动画绘制
 
+# 综合实例——自动安装脚本
+
+## 问题分析
+
+第三方库自动安装脚本
+
+需求： 批量安装第三方库需要人工干预，能否自动安装
+
+自动执行pip注意跟进安装需求安装，涉及一个功能
+
+即： 如何自动执行一个程序？例如： pip ？
+
+## 第三方库介绍
+
+|      库名      |               用途                |        pip安装命令         |
+| :------------: | :-------------------------------: | :------------------------: |
+|     NumPy      | N维数据表示和运算(数据分析基础库) |     pip install numpy      |
+|   Matplotlib   |       二维数据可视化功能库        |   pip install matplotlib   |
+|      PIL       |             图像处理              |     pip install pillow     |
+|  Scikit-Learn  |        机器学习和数据挖掘         |    pip install sklearn     |
+|   TensorFlow   |   AlphaGo背后的机器学习计算框架   |   pip install tensorflow   |
+|    Requests    |      HTTP 协议访问及网络爬虫      |    pip install requests    |
+|     Jieba      |             中文分词              |     pip install jieba      |
+| Beautiful Soup |          HTML和XML解析器          | pip install beautifulsoup4 |
+|     Wheel      |    python第三方库文件打包工具     |     pip install wheel      |
+|  PyInstaller   |   打包Python源文件为可执行文件    |  pip install pyinstaller   |
+|     Django     |     Python最流行的Web开发框架     |     pip install django     |
+|     Flask      |         轻量级Web开发框架         |     pip install flask      |
+|    WeRoBot     |        微信机器人开发框架         |    pip install werobot     |
+|     SymPy      |         数学符号计算工具          |     pip install sympy      |
+|     Pandas     |        高效数据分析和计算         |     pip install pandas     |
+|    Networkx    |   复杂网络和图结构的建模和分析    |    pip install network     |
+|     PyQt5      |     基于Qt的专业级GUI开发框架     |     pip install pyqt5      |
+|    PyOpenGL    |       多平台OpenGL开发接口        |    pip install pyopengl    |
+|     PyPDF2     |       PDF文件内容提取及处理       |     pip install pypdf2     |
+|     docopt     |         Python命令行解析          |     pip install docopt     |
+|     PyGame     |        简单小游戏开发框架         |     pip install pygame     |
+|    Seaborn     |      统计类数据可视化功能库       |    pip install seaborn     |
+|     Mayavi     |     三维科学数据可视化功能库      |     pip install mayavi     |
+|      NLTK      |         自然语言文本处理          |      pip install nltk      |
+|  Python-docx   |   创建或更新Microsoft Word文件    |      pip install docx      |
+|     MXNet      |  基于神经网络的深度学习计算框架   |     pip install mxnet      |
+
+## 代码实现
+
+```python
+# batchInstall
+import os
+libs = {"numpy","matplotlib","pillow","sklearn","requests","jieba","beautifulsoup4","wheel","networkx","sympy","pyinstaller","django","flask","werobot","pyqt5","pandas","pyopengl","pypdf2","docopt","pygame","seaborn"}
+try:
+    for lib in libs:
+        os.system('pip3 install '+lib)
+    print('Successful')
+except:
+    print('Failed Somehow')
+```
+
+## 举一反三
+
+自动化脚本 +
+
+编写各类自动化运行程序的脚本，调用已有程序
+
+扩展应用： 安装更多第三方库，增加配置文件
+
+扩展异常检测： 捕获更多异常类型，给出更多提示信息，程序更稳定友好
+
 # 程序设计方法学
 
 方法论上： 理解并掌握一批Python程序设计思维
@@ -5358,20 +5464,48 @@ pip list： 列出当前系统已经安装的
 
 UCI页面： http://www.lfd.uci.edu/~gohlke/pythonlibs/
 
-## 
+# Python计算生态概览
+
+## 学习目标
+
+方法论
+
+纵览Python计算生态，看见更大世界
+
+实践能力
+
+初步编写带有计算生态的复杂程序
+
+## 从数据处理到人工智能
+
+### 完整链条
+
+#### 数据表示
+
+采用合适方式用程序表达数据
+
+#### 数据清洗
+
+数据归一化、数据转换、异常值处理
+
+#### 数据统计
+
+数据的概要理解，数量、分布、中位数等
+
+#### 数据可视化
+
+直观展示数据内涵的方式
+
+#### 数据挖掘
+
+从数据分析获得知识，产生数据外的价值
+
+#### 人工智能
+
+依托于传统的数据、语音、图像、视觉等方面深度分析与决策
+
+链条下，每个板块都有大量 Python 第三方库
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-自动安装脚本
+从Web
