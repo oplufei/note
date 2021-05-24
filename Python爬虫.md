@@ -35,7 +35,7 @@ Response对象： 包含爬虫（服务器资源）返回的内容
 
 Request对象： 向服务器请求资源
 
-### 属性
+### 操作
 
 |        属性         |                       描述                       |
 | :-----------------: | :----------------------------------------------: |
@@ -93,3 +93,126 @@ requests.ConnectTimeout： 仅指与远程服务器连接这个过程
 requests.Timeout： 发出URL请求到获得内容整个过程的
 
 理解Response对象很重要，Response返回了网页爬取的所有内容
+
+# 提取
+
+## bs4库
+
+解析、遍历、维护“标签树”的功能库
+
+### 安装
+
+pip install beautifulsoup4
+
+安装小测
+
+```python
+import requests
+r = requests.get('http://python123.io/ws/demo.html')
+demo = r.text
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(demo, 'html.parser')	#用html解释器来解析
+print(soup.prettify())
+```
+
+结果（解析成功，说明安装成功）
+
+```
+<html>
+ <head>
+  <title>
+   This is a python demo page
+  </title>
+ </head>
+ <body>
+  <p class="title">
+   <b>
+    The demo python introduces several python courses.
+   </b>
+  </p>
+  <p class="course">
+   Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:
+   <a class="py1" href="http://www.icourse163.org/course/BIT-268001" id="link1">
+    Basic Python
+   </a>
+   and
+   <a class="py2" href="http://www.icourse163.org/course/BIT-1001870001" id="link2">
+    Advanced Python
+   </a>
+   .
+  </p>
+ </body>
+</html>
+```
+
+### 引用方式
+
+#### from bs4 import BeautifulSoup
+
+常用，从库引用 BeautifulSoup 类
+
+##### 理解
+
+库本身解析的是 HTML、XML 文档，文档与标签树一一对应，经过 BeautifulSoup 类的处理，每一个标签树转换为 BeautifulSoup 类，可以认为文档、标签树、BeautifulSoup 类三者等价
+
+通过类使树形成一个变量，从而可以对变量（树）进行处理
+
+##### 操作
+
+###### 两种载入内容方法
+
+```python
+from bs4 import BeautifulSoup
+soup = BeartifulSoup('<html>data</html>', 'html.parser')
+soup2 = BeautifulSoup(open('D://demo.html'), 'html.parser')
+```
+
+###### import bs4
+
+需要判断基本变量时使用
+
+### 解析器
+
+|      解析器      |             使用方法             |         条件         |
+| :--------------: | :------------------------------: | :------------------: |
+| bs4的HTML解析器  | BeautifulSoup(mk, 'html.parser') |      安装bs4库       |
+| lxml的HTML解析器 |    BeautifulSoup(mk, 'lxml')     |   pip install lxml   |
+| lxml的XML解析器  |     BeautifulSoup(mk, 'xml')     |   pip install lxml   |
+| html5lib的解析器 |  BeautifulSoup(mk, 'html5lib')   | pip install html5lib |
+
+### BeautifulSoup 类基本元素
+
+#### Tag
+
+标签，最基本的信息组织单元，分别用 <></> 标明开头和结尾
+
+#### Name
+
+标签的名字，<p>...</p> 名字是'p'，格式：<tag>.name
+
+#### Attributes
+
+标签的属性，字典形式组织，格式：<tag>.attrs
+
+#### NavigableString
+
+标签内非属性字符串，文本节点，<>...</> 中字符串，格式：<tag>.string
+
+#### Comment
+
+标签内字符串的注释部分，一种特殊的 Comment 类型
+
+### 操作
+
+#### 获取标签
+
+##### <变量名>.tag
+
+##### 获取标签名字
+
+##### 获取标签属性
+
+##### 获取非属性字符串
+
+##### 获取注释
+
