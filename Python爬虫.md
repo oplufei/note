@@ -216,3 +216,11 @@ soup2 = BeautifulSoup(open('D://demo.html'), 'html.parser')
 
 ##### 获取注释
 
+### 遍历
+
+### prettify()方法
+
+## 信息的标记
+
+理解
+
