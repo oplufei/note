@@ -312,3 +312,28 @@ re.split()
 re.finditer()
 
 re.sub()
+
+实例 淘宝商品比价定向爬虫
+
+
+
+# Scrapy爬虫框架
+
+爬虫框架是实现爬虫功能的一个软件结构和功能组件集合
+
+## 实例
+
+股票数据Scrapy爬虫
+
+建立工程和Spider模板
+
+编写Spider
+
+编写ITEM Pipelines
+
+对后期做处理
+
+```python
+
+```
+
