@@ -1,9 +1,12 @@
-| abrupt                                                       |
+| abrupt-突然的                                                |
 | ------------------------------------------------------------ |
-| accurate                                                     |
-| achievable                                                   |
-| additional computational metrics                             |
-| address                                                      |
+| accurate-精确的                                              |
+| achievable 可完成的                                          |
+| additional computational metrics 附加计算度量；额外计算指标  |
+| additional-另外的                                            |
+| computational-计算的                                         |
+| metrics-韵律学；度量指标；metrics  指路由度量值，即从当前计算机发送数据包到目的地址的开销是多少，用于路径选择时使用，metrics值越小表示路径越好 |
+| address-地址；                                               |
 | adjacent                                                     |
 | adjacent snapshots                                           |
 | adjacent time slices                                         |
